@@ -27,14 +27,14 @@ function MainApp() {
   };
 
   return (
-    <div className="flex min-h-screen" style={{ background: "oklch(0.11 0.008 240)" }}>
+    <div className="flex min-h-screen" style={{ background: "#ffffff" }}>
       {/* Sidebar */}
       <Sidebar activeId={activeId} onSelect={handleSelect} onCollapse={setSidebarCollapsed} />
 
       {/* Main content — offset for sidebar */}
       <main
         className="flex-1 transition-all duration-300"
-        style={{ marginLeft: sidebarCollapsed ? "64px" : "256px" }}
+        style={{ marginLeft: sidebarCollapsed ? "64px" : "256px", background: "#ffffff" }}
       >
 
         {activeId === "home" ? (
@@ -56,7 +56,7 @@ function MainApp() {
 function App() {
   return (
     <ErrorBoundary>
-      <ThemeProvider defaultTheme="dark">
+      <ThemeProvider defaultTheme="light">
         <TooltipProvider>
           <Toaster />
           <MainApp />

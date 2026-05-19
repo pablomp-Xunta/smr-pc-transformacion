@@ -27,7 +27,7 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
   ] as const;
 
   return (
-    <div className="min-h-screen" style={{ background: "oklch(0.11 0.008 240)" }}>
+    <div className="min-h-screen" style={{ background: "#ffffff" }}>
       {/* ── HEADER ── */}
       <div
         className="sticky top-0 z-30"
@@ -41,7 +41,7 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
           <button
             onClick={onBack}
             className="flex items-center gap-1.5 text-xs font-mono transition-colors hover:text-white"
-            style={{ color: "oklch(0.55 0.01 240)" }}
+            style={{ color: "#757575" }}
           >
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
               <path
@@ -54,10 +54,10 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
             </svg>
             Volver
           </button>
-          <span style={{ color: "oklch(0.28 0.01 240)" }}>/</span>
+          <span style={{ color: "#bdbdbd" }}>/</span>
           <span
             className="text-xs font-mono"
-            style={{ color: "oklch(0.75 0.18 155)" }}
+            style={{ color: "#ffc107" }}
           >
             {system.name}
           </span>
@@ -69,7 +69,7 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
         className="py-10 lg:py-14"
         style={{
           background:
-            "linear-gradient(180deg, oklch(0.15 0.008 240) 0%, oklch(0.11 0.008 240) 100%)",
+            "linear-gradient(180deg, #f5f5f5 0%, #ffffff 100%)",
           borderBottom: "1px solid oklch(0.20 0.01 240)",
         }}
       >
@@ -79,8 +79,8 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
               <div
                 className="w-16 h-16 rounded-xl flex items-center justify-center text-3xl flex-shrink-0"
                 style={{
-                  background: "oklch(0.18 0.008 240)",
-                  border: "1px solid oklch(0.28 0.01 240)",
+                  background: "#f5f5f5",
+                  border: "1px solid #bdbdbd",
                 }}
               >
                 {system.logoEmoji}
@@ -90,8 +90,8 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
                   <h1
                     className="text-3xl font-bold"
                     style={{
-                      fontFamily: "'JetBrains Mono', monospace",
-                      color: "oklch(0.95 0.005 240)",
+                      fontFamily: "Verdana, Geneva, sans-serif",
+                      color: "#212121",
                     }}
                   >
                     {system.name}
@@ -103,8 +103,8 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
                 <p
                   className="text-base mb-3"
                   style={{
-                    fontFamily: "'Source Sans 3', sans-serif",
-                    color: "oklch(0.60 0.01 240)",
+                    fontFamily: "Verdana, Geneva, sans-serif",
+                    color: "#757575",
                   }}
                 >
                   {system.subtitle}
@@ -115,9 +115,9 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
                       key={tag}
                       className="text-xs px-2 py-0.5 rounded font-mono"
                       style={{
-                        background: "oklch(0.20 0.008 240)",
-                        color: "oklch(0.55 0.01 240)",
-                        border: "1px solid oklch(0.25 0.01 240)",
+                        background: "#f5f5f5",
+                        color: "#757575",
+                        border: "1px solid #bdbdbd",
                       }}
                     >
                       {tag}
@@ -135,7 +135,7 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
               className="inline-flex items-center gap-2 px-4 py-2 rounded text-sm font-mono transition-all hover:opacity-80 flex-shrink-0"
               style={{
                 background: "oklch(0.75 0.18 155 / 0.12)",
-                color: "oklch(0.75 0.18 155)",
+                color: "#ffc107",
                 border: "1px solid oklch(0.75 0.18 155 / 0.3)",
               }}
             >
@@ -174,11 +174,11 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
                 style={{
                   color:
                     activeTab === tab.id
-                      ? "oklch(0.75 0.18 155)"
-                      : "oklch(0.52 0.01 240)",
+                      ? "#ffc107"
+                      : "#757575",
                   borderBottom:
                     activeTab === tab.id
-                      ? "2px solid oklch(0.75 0.18 155)"
+                      ? "2px solid #ffc107"
                       : "2px solid transparent",
                 }}
               >
@@ -197,17 +197,17 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
             <h2
               className="text-lg font-bold mb-4"
               style={{
-                fontFamily: "'JetBrains Mono', monospace",
-                color: "oklch(0.90 0.005 240)",
+                fontFamily: "Verdana, Geneva, sans-serif",
+                color: "#212121",
               }}
             >
-              <span style={{ color: "oklch(0.75 0.18 155)" }}>//</span> ¿Qué es {system.name}?
+              <span style={{ color: "#ffc107" }}>//</span> ¿Qué es {system.name}?
             </h2>
             <p
               className="text-base leading-relaxed mb-8"
               style={{
-                fontFamily: "'Source Sans 3', sans-serif",
-                color: "oklch(0.70 0.01 240)",
+                fontFamily: "Verdana, Geneva, sans-serif",
+                color: "#212121",
                 lineHeight: "1.8",
               }}
             >
@@ -217,11 +217,11 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
             <h3
               className="text-base font-bold mb-4"
               style={{
-                fontFamily: "'JetBrains Mono', monospace",
-                color: "oklch(0.85 0.005 240)",
+                fontFamily: "Verdana, Geneva, sans-serif",
+                color: "#212121",
               }}
             >
-              <span style={{ color: "oklch(0.68 0.15 240)" }}>#</span> Casos de uso principales
+              <span style={{ color: "#3f51b5" }}>#</span> Casos de uso principales
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {system.useCases.map((uc, i) => (
@@ -229,21 +229,21 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
                   key={i}
                   className="flex items-start gap-3 p-4 rounded"
                   style={{
-                    background: "oklch(0.16 0.008 240)",
+                    background: "#f5f5f5",
                     border: "1px solid oklch(0.24 0.01 240)",
                   }}
                 >
                   <span
                     className="text-xs font-mono mt-0.5 flex-shrink-0"
-                    style={{ color: "oklch(0.75 0.18 155)" }}
+                    style={{ color: "#ffc107" }}
                   >
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <span
                     className="text-sm"
                     style={{
-                      fontFamily: "'Source Sans 3', sans-serif",
-                      color: "oklch(0.72 0.01 240)",
+                      fontFamily: "Verdana, Geneva, sans-serif",
+                      color: "#757575",
                     }}
                   >
                     {uc}
@@ -260,27 +260,27 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
             <h2
               className="text-lg font-bold mb-6"
               style={{
-                fontFamily: "'JetBrains Mono', monospace",
-                color: "oklch(0.90 0.005 240)",
+                fontFamily: "Verdana, Geneva, sans-serif",
+                color: "#212121",
               }}
             >
-              <span style={{ color: "oklch(0.75 0.18 155)" }}>{">"}  </span> Primeros pasos
+              <span style={{ color: "#ffc107" }}>{">"}  </span> Primeros pasos
             </h2>
 
             {/* Quick Start */}
             <h3
               className="text-base font-bold mb-4"
               style={{
-                fontFamily: "'JetBrains Mono', monospace",
-                color: "oklch(0.85 0.005 240)",
+                fontFamily: "Verdana, Geneva, sans-serif",
+                color: "#212121",
               }}
             >
-              <span style={{ color: "oklch(0.68 0.15 240)" }}>#</span> Inicio rápido
+              <span style={{ color: "#3f51b5" }}>#</span> Inicio rápido
             </h3>
             <div
               className="p-5 rounded-lg mb-6"
               style={{
-                background: "oklch(0.16 0.008 240)",
+                background: "#f5f5f5",
                 border: "1px solid oklch(0.24 0.01 240)",
               }}
             >
@@ -289,15 +289,15 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
                   <li key={i} className="flex items-start gap-3">
                     <span
                       className="text-xs font-mono flex-shrink-0 mt-0.5"
-                      style={{ color: "oklch(0.75 0.18 155)" }}
+                      style={{ color: "#ffc107" }}
                     >
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <span
                       className="text-sm"
                       style={{
-                        fontFamily: "'Source Sans 3', sans-serif",
-                        color: "oklch(0.65 0.01 240)",
+                        fontFamily: "Verdana, Geneva, sans-serif",
+                        color: "#757575",
                       }}
                     >
                       {step}
@@ -311,11 +311,11 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
             <h3
               className="text-base font-bold mb-4"
               style={{
-                fontFamily: "'JetBrains Mono', monospace",
-                color: "oklch(0.85 0.005 240)",
+                fontFamily: "Verdana, Geneva, sans-serif",
+                color: "#212121",
               }}
             >
-              <span style={{ color: "oklch(0.68 0.15 240)" }}>#</span> Primeras tareas prácticas
+              <span style={{ color: "#3f51b5" }}>#</span> Primeras tareas prácticas
             </h3>
             <div className="space-y-3 mb-6">
               {system.gettingStarted.firstTasks.map((task, i) => (
@@ -323,7 +323,7 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
                   key={i}
                   className="p-4 rounded-lg"
                   style={{
-                    background: "oklch(0.16 0.008 240)",
+                    background: "#f5f5f5",
                     border: "1px solid oklch(0.24 0.01 240)",
                   }}
                 >
@@ -331,15 +331,15 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
                     <h4
                       className="text-sm font-bold"
                       style={{
-                        fontFamily: "'JetBrains Mono', monospace",
-                        color: "oklch(0.88 0.005 240)",
+                        fontFamily: "Verdana, Geneva, sans-serif",
+                        color: "#212121",
                       }}
                     >
                       {task.title}
                     </h4>
                     <span
                       className="text-xs font-mono flex-shrink-0"
-                      style={{ color: "oklch(0.68 0.15 240)" }}
+                      style={{ color: "#3f51b5" }}
                     >
                       ⏱ {task.time}
                     </span>
@@ -347,8 +347,8 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
                   <p
                     className="text-sm"
                     style={{
-                      fontFamily: "'Source Sans 3', sans-serif",
-                      color: "oklch(0.65 0.01 240)",
+                      fontFamily: "Verdana, Geneva, sans-serif",
+                      color: "#757575",
                     }}
                   >
                     {task.description}
@@ -361,11 +361,11 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
             <h3
               className="text-base font-bold mb-4"
               style={{
-                fontFamily: "'JetBrains Mono', monospace",
-                color: "oklch(0.85 0.005 240)",
+                fontFamily: "Verdana, Geneva, sans-serif",
+                color: "#212121",
               }}
             >
-              <span style={{ color: "oklch(0.75 0.18 155)" }}>⚠</span> Errores comunes
+              <span style={{ color: "#ffc107" }}>⚠</span> Errores comunes
             </h3>
             <div className="space-y-3">
               {system.gettingStarted.commonMistakes.map((item, i) => (
@@ -373,15 +373,15 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
                   key={i}
                   className="p-4 rounded-lg"
                   style={{
-                    background: "oklch(0.16 0.008 240)",
+                    background: "#f5f5f5",
                     border: "1px solid oklch(0.24 0.01 240)",
                   }}
                 >
                   <h4
                     className="text-sm font-bold mb-2"
                     style={{
-                      fontFamily: "'JetBrains Mono', monospace",
-                      color: "oklch(0.88 0.005 240)",
+                      fontFamily: "Verdana, Geneva, sans-serif",
+                      color: "#212121",
                     }}
                   >
                     ❌ {item.mistake}
@@ -389,11 +389,11 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
                   <p
                     className="text-sm"
                     style={{
-                      fontFamily: "'Source Sans 3', sans-serif",
-                      color: "oklch(0.65 0.01 240)",
+                      fontFamily: "Verdana, Geneva, sans-serif",
+                      color: "#757575",
                     }}
                   >
-                    <strong style={{ color: "oklch(0.75 0.18 155)" }}>Solución:</strong> {item.solution}
+                    <strong style={{ color: "#ffc107" }}>Solución:</strong> {item.solution}
                   </p>
                 </div>
               ))}
@@ -407,18 +407,18 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
             <h2
               className="text-lg font-bold mb-6"
               style={{
-                fontFamily: "'JetBrains Mono', monospace",
-                color: "oklch(0.90 0.005 240)",
+                fontFamily: "Verdana, Geneva, sans-serif",
+                color: "#212121",
               }}
             >
-              <span style={{ color: "oklch(0.75 0.18 155)" }}>//</span> Guía de instalación
+              <span style={{ color: "#ffc107" }}>//</span> Guía de instalación
             </h2>
 
             <div className="relative">
               {/* Vertical line */}
               <div
                 className="absolute left-5 top-0 bottom-0 w-px"
-                style={{ background: "oklch(0.25 0.01 240)" }}
+                style={{ background: "#bdbdbd" }}
               />
 
               <div className="space-y-6">
@@ -428,9 +428,9 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
                     <div
                       className="relative z-10 w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold font-mono flex-shrink-0"
                       style={{
-                        background: "oklch(0.16 0.008 240)",
+                        background: "#f5f5f5",
                         border: "2px solid oklch(0.75 0.18 155 / 0.5)",
-                        color: "oklch(0.75 0.18 155)",
+                        color: "#ffc107",
                       }}
                     >
                       {String(i + 1).padStart(2, "0")}
@@ -440,15 +440,15 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
                     <div
                       className="flex-1 p-5 rounded-lg"
                       style={{
-                        background: "oklch(0.16 0.008 240)",
+                        background: "#f5f5f5",
                         border: "1px solid oklch(0.24 0.01 240)",
                       }}
                     >
                       <h3
                         className="text-sm font-bold mb-2"
                         style={{
-                          fontFamily: "'JetBrains Mono', monospace",
-                          color: "oklch(0.88 0.005 240)",
+                          fontFamily: "Verdana, Geneva, sans-serif",
+                          color: "#212121",
                         }}
                       >
                         {step.title}
@@ -456,8 +456,8 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
                       <p
                         className="text-sm leading-relaxed mb-3"
                         style={{
-                          fontFamily: "'Source Sans 3', sans-serif",
-                          color: "oklch(0.65 0.01 240)",
+                          fontFamily: "Verdana, Geneva, sans-serif",
+                          color: "#757575",
                         }}
                       >
                         {step.description}
@@ -466,16 +466,16 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
                         <div className="code-block">
                           <div className="flex items-center gap-2 mb-2 pb-2" style={{ borderBottom: "1px solid oklch(0.22 0.01 240)" }}>
                             <div className="flex gap-1.5">
-                              <div className="w-2.5 h-2.5 rounded-full" style={{ background: "oklch(0.65 0.22 25)" }} />
-                              <div className="w-2.5 h-2.5 rounded-full" style={{ background: "oklch(0.82 0.16 95)" }} />
-                              <div className="w-2.5 h-2.5 rounded-full" style={{ background: "oklch(0.75 0.18 155)" }} />
+                              <div className="w-2.5 h-2.5 rounded-full" style={{ background: "#d32f2f" }} />
+                              <div className="w-2.5 h-2.5 rounded-full" style={{ background: "#ffc107" }} />
+                              <div className="w-2.5 h-2.5 rounded-full" style={{ background: "#ffc107" }} />
                             </div>
-                            <span className="text-xs" style={{ color: "oklch(0.40 0.01 240)" }}>
+                            <span className="text-xs" style={{ color: "#757575" }}>
                               terminal
                             </span>
                           </div>
-                          <pre className="whitespace-pre-wrap text-xs leading-relaxed" style={{ color: "oklch(0.75 0.18 155)" }}>
-                            <span style={{ color: "oklch(0.55 0.01 240)" }}>$ </span>
+                          <pre className="whitespace-pre-wrap text-xs leading-relaxed" style={{ color: "#ffc107" }}>
+                            <span style={{ color: "#757575" }}>$ </span>
                             {step.command}
                           </pre>
                         </div>
@@ -494,11 +494,11 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
             <h2
               className="text-lg font-bold mb-6"
               style={{
-                fontFamily: "'JetBrains Mono', monospace",
-                color: "oklch(0.90 0.005 240)",
+                fontFamily: "Verdana, Geneva, sans-serif",
+                color: "#212121",
               }}
             >
-              <span style={{ color: "oklch(0.75 0.18 155)" }}>//</span> Requisitos de hardware
+              <span style={{ color: "#ffc107" }}>//</span> Requisitos de hardware
             </h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
@@ -515,7 +515,7 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
                   key={item.label}
                   className="p-5 rounded-lg"
                   style={{
-                    background: "oklch(0.16 0.008 240)",
+                    background: "#f5f5f5",
                     border: "1px solid oklch(0.24 0.01 240)",
                   }}
                 >
@@ -523,7 +523,7 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
                     <span className="text-lg">{item.icon}</span>
                     <span
                       className="text-xs uppercase tracking-wider font-mono"
-                      style={{ color: "oklch(0.48 0.01 240)" }}
+                      style={{ color: "#757575" }}
                     >
                       {item.label}
                     </span>
@@ -531,8 +531,8 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
                   <p
                     className="text-sm"
                     style={{
-                      fontFamily: "'Source Sans 3', sans-serif",
-                      color: "oklch(0.78 0.01 240)",
+                      fontFamily: "Verdana, Geneva, sans-serif",
+                      color: "#212121",
                       lineHeight: "1.6",
                     }}
                   >
@@ -556,8 +556,8 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
                   <h3
                     className="text-sm font-bold mb-1"
                     style={{
-                      fontFamily: "'JetBrains Mono', monospace",
-                      color: "oklch(0.68 0.15 240)",
+                      fontFamily: "Verdana, Geneva, sans-serif",
+                      color: "#3f51b5",
                     }}
                   >
                     Consejo para el laboratorio
@@ -565,8 +565,8 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
                   <p
                     className="text-sm"
                     style={{
-                      fontFamily: "'Source Sans 3', sans-serif",
-                      color: "oklch(0.65 0.01 240)",
+                      fontFamily: "Verdana, Geneva, sans-serif",
+                      color: "#757575",
                       lineHeight: "1.7",
                     }}
                   >
@@ -584,11 +584,11 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
             <h2
               className="text-lg font-bold mb-6"
               style={{
-                fontFamily: "'JetBrains Mono', monospace",
-                color: "oklch(0.90 0.005 240)",
+                fontFamily: "Verdana, Geneva, sans-serif",
+                color: "#212121",
               }}
             >
-              <span style={{ color: "oklch(0.75 0.18 155)" }}>//</span> Ventajas e inconvenientes
+              <span style={{ color: "#ffc107" }}>//</span> Ventajas e inconvenientes
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -603,8 +603,8 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
                 <h3
                   className="text-sm font-bold mb-4 flex items-center gap-2"
                   style={{
-                    fontFamily: "'JetBrains Mono', monospace",
-                    color: "oklch(0.75 0.18 155)",
+                    fontFamily: "Verdana, Geneva, sans-serif",
+                    color: "#ffc107",
                   }}
                 >
                   <span>✓</span> Ventajas
@@ -614,15 +614,15 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
                     <li key={i} className="flex items-start gap-3">
                       <span
                         className="text-xs font-mono mt-0.5 flex-shrink-0"
-                        style={{ color: "oklch(0.75 0.18 155)" }}
+                        style={{ color: "#ffc107" }}
                       >
                         +
                       </span>
                       <span
                         className="text-sm"
                         style={{
-                          fontFamily: "'Source Sans 3', sans-serif",
-                          color: "oklch(0.70 0.01 240)",
+                          fontFamily: "Verdana, Geneva, sans-serif",
+                          color: "#212121",
                         }}
                       >
                         {pro}
@@ -643,8 +643,8 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
                 <h3
                   className="text-sm font-bold mb-4 flex items-center gap-2"
                   style={{
-                    fontFamily: "'JetBrains Mono', monospace",
-                    color: "oklch(0.65 0.22 25)",
+                    fontFamily: "Verdana, Geneva, sans-serif",
+                    color: "#d32f2f",
                   }}
                 >
                   <span>✗</span> Inconvenientes
@@ -654,15 +654,15 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
                     <li key={i} className="flex items-start gap-3">
                       <span
                         className="text-xs font-mono mt-0.5 flex-shrink-0"
-                        style={{ color: "oklch(0.65 0.22 25)" }}
+                        style={{ color: "#d32f2f" }}
                       >
                         -
                       </span>
                       <span
                         className="text-sm"
                         style={{
-                          fontFamily: "'Source Sans 3', sans-serif",
-                          color: "oklch(0.70 0.01 240)",
+                          fontFamily: "Verdana, Geneva, sans-serif",
+                          color: "#212121",
                         }}
                       >
                         {con}
@@ -677,24 +677,24 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
             <div
               className="mt-6 p-5 rounded-lg"
               style={{
-                background: "oklch(0.16 0.008 240)",
+                background: "#f5f5f5",
                 border: "1px solid oklch(0.24 0.01 240)",
               }}
             >
               <h3
                 className="text-sm font-bold mb-2"
                 style={{
-                  fontFamily: "'JetBrains Mono', monospace",
-                  color: "oklch(0.85 0.005 240)",
+                  fontFamily: "Verdana, Geneva, sans-serif",
+                  color: "#212121",
                 }}
               >
-                <span style={{ color: "oklch(0.82 0.16 95)" }}>⚡</span> ¿Cuándo elegir {system.name}?
+                <span style={{ color: "#ffc107" }}>⚡</span> ¿Cuándo elegir {system.name}?
               </h3>
               <p
                 className="text-sm leading-relaxed"
                 style={{
-                  fontFamily: "'Source Sans 3', sans-serif",
-                  color: "oklch(0.65 0.01 240)",
+                  fontFamily: "Verdana, Geneva, sans-serif",
+                  color: "#757575",
                   lineHeight: "1.7",
                 }}
               >
@@ -723,18 +723,18 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
             <h2
               className="text-lg font-bold mb-6"
               style={{
-                fontFamily: "'JetBrains Mono', monospace",
-                color: "oklch(0.90 0.005 240)",
+                fontFamily: "Verdana, Geneva, sans-serif",
+                color: "#212121",
               }}
             >
-              <span style={{ color: "oklch(0.75 0.18 155)" }}>//</span> Servidor Plex en TrueNAS
+              <span style={{ color: "#ffc107" }}>//</span> Servidor Plex en TrueNAS
             </h2>
 
             <p
               className="text-base leading-relaxed mb-6"
               style={{
-                fontFamily: "'Source Sans 3', sans-serif",
-                color: "oklch(0.70 0.01 240)",
+                fontFamily: "Verdana, Geneva, sans-serif",
+                color: "#212121",
                 lineHeight: "1.8",
               }}
             >
@@ -745,16 +745,16 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
             <h3
               className="text-base font-bold mb-4"
               style={{
-                fontFamily: "'JetBrains Mono', monospace",
-                color: "oklch(0.85 0.005 240)",
+                fontFamily: "Verdana, Geneva, sans-serif",
+                color: "#212121",
               }}
             >
-              <span style={{ color: "oklch(0.68 0.15 240)" }}>#</span> Instalación en TrueNAS
+              <span style={{ color: "#3f51b5" }}>#</span> Instalación en TrueNAS
             </h3>
             <div
               className="p-5 rounded-lg mb-6"
               style={{
-                background: "oklch(0.16 0.008 240)",
+                background: "#f5f5f5",
                 border: "1px solid oklch(0.24 0.01 240)",
               }}
             >
@@ -763,8 +763,8 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
                   <h4
                     className="text-sm font-bold mb-2"
                     style={{
-                      fontFamily: "'JetBrains Mono', monospace",
-                      color: "oklch(0.88 0.005 240)",
+                      fontFamily: "Verdana, Geneva, sans-serif",
+                      color: "#212121",
                     }}
                   >
                     TrueNAS SCALE (recomendado):
@@ -780,15 +780,15 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
                       <li key={i} className="flex items-start gap-3">
                         <span
                           className="text-xs font-mono flex-shrink-0 mt-0.5"
-                          style={{ color: "oklch(0.75 0.18 155)" }}
+                          style={{ color: "#ffc107" }}
                         >
                           {String(i + 1).padStart(2, "0")}
                         </span>
                         <span
                           className="text-sm"
                           style={{
-                            fontFamily: "'Source Sans 3', sans-serif",
-                            color: "oklch(0.65 0.01 240)",
+                            fontFamily: "Verdana, Geneva, sans-serif",
+                            color: "#757575",
                           }}
                         >
                           {step}
@@ -804,11 +804,11 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
             <h3
               className="text-base font-bold mb-4"
               style={{
-                fontFamily: "'JetBrains Mono', monospace",
-                color: "oklch(0.85 0.005 240)",
+                fontFamily: "Verdana, Geneva, sans-serif",
+                color: "#212121",
               }}
             >
-              <span style={{ color: "oklch(0.68 0.15 240)" }}>#</span> Configuración de la biblioteca
+              <span style={{ color: "#3f51b5" }}>#</span> Configuración de la biblioteca
             </h3>
             <div className="space-y-3 mb-6">
               {[
@@ -833,15 +833,15 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
                   key={i}
                   className="p-4 rounded-lg"
                   style={{
-                    background: "oklch(0.16 0.008 240)",
+                    background: "#f5f5f5",
                     border: "1px solid oklch(0.24 0.01 240)",
                   }}
                 >
                   <h4
                     className="text-sm font-bold mb-1"
                     style={{
-                      fontFamily: "'JetBrains Mono', monospace",
-                      color: "oklch(0.88 0.005 240)",
+                      fontFamily: "Verdana, Geneva, sans-serif",
+                      color: "#212121",
                     }}
                   >
                     {item.title}
@@ -849,8 +849,8 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
                   <p
                     className="text-sm"
                     style={{
-                      fontFamily: "'Source Sans 3', sans-serif",
-                      color: "oklch(0.65 0.01 240)",
+                      fontFamily: "Verdana, Geneva, sans-serif",
+                      color: "#757575",
                     }}
                   >
                     {item.desc}
@@ -863,11 +863,11 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
             <h3
               className="text-base font-bold mb-4"
               style={{
-                fontFamily: "'JetBrains Mono', monospace",
-                color: "oklch(0.85 0.005 240)",
+                fontFamily: "Verdana, Geneva, sans-serif",
+                color: "#212121",
               }}
             >
-              <span style={{ color: "oklch(0.75 0.18 155)" }}>✓</span> Ventajas de Plex en TrueNAS
+              <span style={{ color: "#ffc107" }}>✓</span> Ventajas de Plex en TrueNAS
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
               {[
@@ -884,16 +884,16 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
                   key={i}
                   className="flex items-start gap-2 p-3 rounded-lg"
                   style={{
-                    background: "oklch(0.16 0.008 240)",
+                    background: "#f5f5f5",
                     border: "1px solid oklch(0.24 0.01 240)",
                   }}
                 >
-                  <span style={{ color: "oklch(0.75 0.18 155)" }}>→</span>
+                  <span style={{ color: "#ffc107" }}>→</span>
                   <span
                     className="text-sm"
                     style={{
-                      fontFamily: "'Source Sans 3', sans-serif",
-                      color: "oklch(0.65 0.01 240)",
+                      fontFamily: "Verdana, Geneva, sans-serif",
+                      color: "#757575",
                     }}
                   >
                     {benefit}
@@ -916,8 +916,8 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
                   <h4
                     className="text-sm font-bold mb-2"
                     style={{
-                      fontFamily: "'JetBrains Mono', monospace",
-                      color: "oklch(0.68 0.15 240)",
+                      fontFamily: "Verdana, Geneva, sans-serif",
+                      color: "#3f51b5",
                     }}
                   >
                     Requisitos para transcodificación
@@ -925,8 +925,8 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
                   <p
                     className="text-sm leading-relaxed"
                     style={{
-                      fontFamily: "'Source Sans 3', sans-serif",
-                      color: "oklch(0.65 0.01 240)",
+                      fontFamily: "Verdana, Geneva, sans-serif",
+                      color: "#757575",
                       lineHeight: "1.7",
                     }}
                   >

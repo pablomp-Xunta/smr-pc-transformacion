@@ -21,7 +21,7 @@ export default function HomePage({ onSelect }: HomePageProps) {
       <section
         className="relative overflow-hidden"
         style={{
-          background: "oklch(0.11 0.008 240)",
+          background: "#ffffff",
           minHeight: "520px",
         }}
       >
@@ -39,7 +39,7 @@ export default function HomePage({ onSelect }: HomePageProps) {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(90deg, oklch(0.11 0.008 240) 40%, oklch(0.11 0.008 240 / 0.4) 70%, transparent 100%)",
+              "linear-gradient(90deg, #ffffff 40%, oklch(0.11 0.008 240 / 0.4) 70%, transparent 100%)",
           }}
         />
 
@@ -51,7 +51,7 @@ export default function HomePage({ onSelect }: HomePageProps) {
                 className="px-3 py-1 rounded text-xs font-mono uppercase tracking-widest"
                 style={{
                   background: "oklch(0.75 0.18 155 / 0.15)",
-                  color: "oklch(0.75 0.18 155)",
+                  color: "#ffc107",
                   border: "1px solid oklch(0.75 0.18 155 / 0.3)",
                 }}
               >
@@ -61,7 +61,7 @@ export default function HomePage({ onSelect }: HomePageProps) {
                 className="px-3 py-1 rounded text-xs font-mono uppercase tracking-widest"
                 style={{
                   background: "oklch(0.68 0.15 240 / 0.15)",
-                  color: "oklch(0.68 0.15 240)",
+                  color: "#3f51b5",
                   border: "1px solid oklch(0.68 0.15 240 / 0.3)",
                 }}
               >
@@ -72,20 +72,20 @@ export default function HomePage({ onSelect }: HomePageProps) {
             <h1
               className="text-4xl lg:text-5xl font-bold leading-tight mb-4"
               style={{
-                fontFamily: "'JetBrains Mono', monospace",
-                color: "oklch(0.95 0.005 240)",
+                fontFamily: "Verdana, Geneva, sans-serif",
+                color: "#212121",
               }}
             >
               Tu PC,{" "}
-              <span style={{ color: "oklch(0.75 0.18 155)" }}>Mil</span>{" "}
+              <span style={{ color: "#ffc107" }}>Mil</span>{" "}
               Posibilidades
             </h1>
 
             <p
               className="text-lg leading-relaxed mb-8"
               style={{
-                fontFamily: "'Source Sans 3', sans-serif",
-                color: "oklch(0.70 0.01 240)",
+                fontFamily: "Verdana, Geneva, sans-serif",
+                color: "#212121",
                 maxWidth: "520px",
               }}
             >
@@ -103,15 +103,15 @@ export default function HomePage({ onSelect }: HomePageProps) {
                   <span
                     className="text-2xl font-bold"
                     style={{
-                      fontFamily: "'JetBrains Mono', monospace",
-                      color: "oklch(0.75 0.18 155)",
+                      fontFamily: "Verdana, Geneva, sans-serif",
+                      color: "#ffc107",
                     }}
                   >
                     {stat.value}
                   </span>
                   <span
                     className="text-xs uppercase tracking-wider"
-                    style={{ color: "oklch(0.50 0.01 240)" }}
+                    style={{ color: "#757575" }}
                   >
                     {stat.label}
                   </span>
@@ -136,23 +136,23 @@ export default function HomePage({ onSelect }: HomePageProps) {
             className="rounded-lg p-6 lg:p-8"
             style={{
               background: "oklch(0.16 0.008 240 / 0.95)",
-              border: "1px solid oklch(0.28 0.01 240)",
+              border: "1px solid #bdbdbd",
             }}
           >
             <h2
               className="text-xl font-bold mb-4"
               style={{
-                fontFamily: "'JetBrains Mono', monospace",
-                color: "oklch(0.90 0.005 240)",
+                fontFamily: "Verdana, Geneva, sans-serif",
+                color: "#212121",
               }}
             >
-              <span style={{ color: "oklch(0.75 0.18 155)" }}>//</span> ¿Qué aprenderás?
+              <span style={{ color: "#ffc107" }}>//</span> ¿Qué aprenderás?
             </h2>
             <p
               className="text-base leading-relaxed mb-6"
               style={{
-                fontFamily: "'Source Sans 3', sans-serif",
-                color: "oklch(0.72 0.01 240)",
+                fontFamily: "Verdana, Geneva, sans-serif",
+                color: "#757575",
               }}
             >
               En este módulo exploraremos cómo un PC estándar puede convertirse en una herramienta especializada instalando sistemas operativos y software diseñados para tareas concretas. Más allá de Windows y las distribuciones Linux convencionales, existe un ecosistema rico de soluciones de código abierto que transforman el hardware en servidores, routers, sistemas de almacenamiento o entornos de virtualización.
@@ -179,7 +179,7 @@ export default function HomePage({ onSelect }: HomePageProps) {
                   key={item.title}
                   className="p-4 rounded"
                   style={{
-                    background: "oklch(0.13 0.008 240)",
+                    background: "#303f9f",
                     border: "1px solid oklch(0.22 0.01 240)",
                   }}
                 >
@@ -187,8 +187,8 @@ export default function HomePage({ onSelect }: HomePageProps) {
                   <h3
                     className="text-sm font-semibold mb-1"
                     style={{
-                      fontFamily: "'JetBrains Mono', monospace",
-                      color: "oklch(0.85 0.005 240)",
+                      fontFamily: "Verdana, Geneva, sans-serif",
+                      color: "#212121",
                     }}
                   >
                     {item.title}
@@ -196,8 +196,8 @@ export default function HomePage({ onSelect }: HomePageProps) {
                   <p
                     className="text-sm"
                     style={{
-                      fontFamily: "'Source Sans 3', sans-serif",
-                      color: "oklch(0.58 0.01 240)",
+                      fontFamily: "Verdana, Geneva, sans-serif",
+                      color: "#757575",
                     }}
                   >
                     {item.text}
@@ -210,23 +210,23 @@ export default function HomePage({ onSelect }: HomePageProps) {
       </section>
 
       {/* ── SYSTEMS GRID ── */}
-      <section className="py-12" style={{ background: "oklch(0.11 0.008 240)" }}>
+      <section className="py-12" style={{ background: "#ffffff" }}>
         <div className="container">
           <div className="mb-8">
             <h2
               className="text-2xl font-bold mb-2"
               style={{
-                fontFamily: "'JetBrains Mono', monospace",
-                color: "oklch(0.90 0.005 240)",
+                fontFamily: "Verdana, Geneva, sans-serif",
+                color: "#212121",
               }}
             >
-              <span style={{ color: "oklch(0.75 0.18 155)" }}>&gt;</span> Sistemas disponibles
+              <span style={{ color: "#ffc107" }}>&gt;</span> Sistemas disponibles
             </h2>
             <p
               className="text-sm"
               style={{
-                fontFamily: "'Source Sans 3', sans-serif",
-                color: "oklch(0.55 0.01 240)",
+                fontFamily: "Verdana, Geneva, sans-serif",
+                color: "#757575",
               }}
             >
               Selecciona un sistema para ver la guía completa de instalación y configuración.
@@ -251,15 +251,15 @@ export default function HomePage({ onSelect }: HomePageProps) {
                         <h3
                           className="text-sm font-bold"
                           style={{
-                            fontFamily: "'JetBrains Mono', monospace",
-                            color: "oklch(0.90 0.005 240)",
+                            fontFamily: "Verdana, Geneva, sans-serif",
+                            color: "#212121",
                           }}
                         >
                           {sys.name}
                         </h3>
                         <span
                           className="text-xs"
-                          style={{ color: "oklch(0.48 0.01 240)" }}
+                          style={{ color: "#757575" }}
                         >
                           {sys.categoryLabel}
                         </span>
@@ -274,8 +274,8 @@ export default function HomePage({ onSelect }: HomePageProps) {
                   <p
                     className="text-sm leading-relaxed mb-4"
                     style={{
-                      fontFamily: "'Source Sans 3', sans-serif",
-                      color: "oklch(0.62 0.01 240)",
+                      fontFamily: "Verdana, Geneva, sans-serif",
+                      color: "#757575",
                     }}
                   >
                     {sys.description.slice(0, 120)}...
@@ -288,9 +288,9 @@ export default function HomePage({ onSelect }: HomePageProps) {
                         key={tag}
                         className="text-xs px-2 py-0.5 rounded font-mono"
                         style={{
-                          background: "oklch(0.20 0.008 240)",
-                          color: "oklch(0.55 0.01 240)",
-                          border: "1px solid oklch(0.25 0.01 240)",
+                          background: "#f5f5f5",
+                          color: "#757575",
+                          border: "1px solid #bdbdbd",
                         }}
                       >
                         {tag}
@@ -301,7 +301,7 @@ export default function HomePage({ onSelect }: HomePageProps) {
                   {/* CTA */}
                   <div
                     className="flex items-center gap-1.5 text-xs font-mono"
-                    style={{ color: "oklch(0.75 0.18 155)" }}
+                    style={{ color: "#ffc107" }}
                   >
                     <span>Ver guía completa</span>
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
@@ -324,17 +324,17 @@ export default function HomePage({ onSelect }: HomePageProps) {
       {/* ── ACTIVIDADES PRÁCTICAS ── */}
       <section
         className="py-12"
-        style={{ background: "oklch(0.11 0.008 240)" }}
+        style={{ background: "#ffffff" }}
       >
         <div className="container">
           <h2
             className="text-2xl font-bold mb-6"
             style={{
-              fontFamily: "'JetBrains Mono', monospace",
-              color: "oklch(0.90 0.005 240)",
+              fontFamily: "Verdana, Geneva, sans-serif",
+              color: "#212121",
             }}
           >
-            <span style={{ color: "oklch(0.82 0.16 95)" }}>⚡</span> Actividades prácticas
+            <span style={{ color: "#ffc107" }}>⚡</span> Actividades prácticas
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
@@ -371,7 +371,7 @@ export default function HomePage({ onSelect }: HomePageProps) {
                 key={act.num}
                 className="p-5 rounded-lg"
                 style={{
-                  background: "oklch(0.16 0.008 240)",
+                  background: "#f5f5f5",
                   border: "1px solid oklch(0.24 0.01 240)",
                 }}
               >
@@ -380,7 +380,7 @@ export default function HomePage({ onSelect }: HomePageProps) {
                     className="text-xs font-mono px-2 py-1 rounded"
                     style={{
                       background: "oklch(0.75 0.18 155 / 0.12)",
-                      color: "oklch(0.75 0.18 155)",
+                      color: "#ffc107",
                       border: "1px solid oklch(0.75 0.18 155 / 0.25)",
                     }}
                   >
@@ -400,7 +400,7 @@ export default function HomePage({ onSelect }: HomePageProps) {
                     </span>
                     <span
                       className="text-xs font-mono"
-                      style={{ color: "oklch(0.48 0.01 240)" }}
+                      style={{ color: "#757575" }}
                     >
                       ⏱ {act.time}
                     </span>
@@ -409,8 +409,8 @@ export default function HomePage({ onSelect }: HomePageProps) {
                 <h3
                   className="text-sm font-bold mb-2"
                   style={{
-                    fontFamily: "'JetBrains Mono', monospace",
-                    color: "oklch(0.88 0.005 240)",
+                    fontFamily: "Verdana, Geneva, sans-serif",
+                    color: "#212121",
                   }}
                 >
                   {act.title}
@@ -418,8 +418,8 @@ export default function HomePage({ onSelect }: HomePageProps) {
                 <p
                   className="text-sm leading-relaxed"
                   style={{
-                    fontFamily: "'Source Sans 3', sans-serif",
-                    color: "oklch(0.62 0.01 240)",
+                    fontFamily: "Verdana, Geneva, sans-serif",
+                    color: "#757575",
                   }}
                 >
                   {act.desc}
@@ -433,32 +433,32 @@ export default function HomePage({ onSelect }: HomePageProps) {
       {/* ── COMPARISON TABLE ── */}
       <section
         className="py-12"
-        style={{ background: "oklch(0.13 0.008 240)" }}
+        style={{ background: "#303f9f" }}
       >
         <div className="container">
           <h2
             className="text-2xl font-bold mb-6"
             style={{
-              fontFamily: "'JetBrains Mono', monospace",
-              color: "oklch(0.90 0.005 240)",
+              fontFamily: "Verdana, Geneva, sans-serif",
+              color: "#212121",
             }}
           >
-            <span style={{ color: "oklch(0.68 0.15 240)" }}>#</span> Comparativa rápida
+            <span style={{ color: "#3f51b5" }}>#</span> Comparativa rápida
           </h2>
           <div className="overflow-x-auto">
             <table
               className="w-full text-sm"
-              style={{ fontFamily: "'Source Sans 3', sans-serif" }}
+              style={{ fontFamily: "Verdana, Geneva, sans-serif" }}
             >
               <thead>
-                <tr style={{ borderBottom: "1px solid oklch(0.25 0.01 240)" }}>
+                <tr style={{ borderBottom: "1px solid #bdbdbd" }}>
                   {["Sistema", "Tipo", "Dificultad", "RAM mínima", "Licencia"].map((h) => (
                     <th
                       key={h}
                       className="text-left py-3 px-4 text-xs uppercase tracking-wider"
                       style={{
-                        color: "oklch(0.48 0.01 240)",
-                        fontFamily: "'JetBrains Mono', monospace",
+                        color: "#757575",
+                        fontFamily: "Verdana, Geneva, sans-serif",
                       }}
                     >
                       {h}
@@ -479,21 +479,21 @@ export default function HomePage({ onSelect }: HomePageProps) {
                   <tr
                     key={row.name}
                     style={{
-                      borderBottom: "1px solid oklch(0.20 0.008 240)",
+                      borderBottom: "1px solid #f5f5f5",
                       background: i % 2 === 0 ? "transparent" : "oklch(0.15 0.008 240 / 0.5)",
                     }}
                   >
                     <td
                       className="py-3 px-4 font-medium"
                       style={{
-                        color: "oklch(0.85 0.005 240)",
-                        fontFamily: "'JetBrains Mono', monospace",
+                        color: "#212121",
+                        fontFamily: "Verdana, Geneva, sans-serif",
                         fontSize: "0.8rem",
                       }}
                     >
                       {row.name}
                     </td>
-                    <td className="py-3 px-4" style={{ color: "oklch(0.62 0.01 240)" }}>
+                    <td className="py-3 px-4" style={{ color: "#757575" }}>
                       {row.type}
                     </td>
                     <td className="py-3 px-4">
@@ -511,11 +511,11 @@ export default function HomePage({ onSelect }: HomePageProps) {
                     </td>
                     <td
                       className="py-3 px-4 font-mono text-xs"
-                      style={{ color: "oklch(0.62 0.01 240)" }}
+                      style={{ color: "#757575" }}
                     >
                       {row.ram}
                     </td>
-                    <td className="py-3 px-4" style={{ color: row.license === "Comercial" ? "oklch(0.72 0.18 55)" : "oklch(0.75 0.18 155)", fontSize: "0.8rem" }}>
+                    <td className="py-3 px-4" style={{ color: row.license === "Comercial" ? "#d32f2f" : "#ffc107", fontSize: "0.8rem" }}>
                       {row.license}
                     </td>
                   </tr>
@@ -538,20 +538,20 @@ export default function HomePage({ onSelect }: HomePageProps) {
             <div>
               <p
                 className="text-sm font-mono"
-                style={{ color: "oklch(0.50 0.01 240)" }}
+                style={{ color: "#757575" }}
               >
-                <span style={{ color: "oklch(0.75 0.18 155)" }}>SMR 1º CFGM</span> · Módulo: Montaje y Mantenimiento de Equipos Informáticos
+                <span style={{ color: "#ffc107" }}>SMR 1º CFGM</span> · Módulo: Montaje y Mantenimiento de Equipos Informáticos
               </p>
               <p
                 className="text-xs mt-1"
-                style={{ color: "oklch(0.38 0.01 240)", fontFamily: "'JetBrains Mono', monospace" }}
+                style={{ color: "#757575", fontFamily: "Verdana, Geneva, sans-serif" }}
               >
                 Sistemas Microinformáticos y Redes · Ciclo Formativo de Grado Medio
               </p>
             </div>
             <p
               className="text-xs font-mono"
-              style={{ color: "oklch(0.35 0.01 240)" }}
+              style={{ color: "#757575" }}
             >
               Contenido educativo de libre uso · 2024/25
             </p>

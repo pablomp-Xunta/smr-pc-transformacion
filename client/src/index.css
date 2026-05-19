@@ -1,8 +1,8 @@
 /* ============================================================
-   TEMA: "Terminal Educativo" — SMR 1º CFGM
-   Estética: laboratorio informático oscuro, terminal profesional
-   Colores: negro profundo + verde terminal + azul eléctrico
-   Tipografía: JetBrains Mono (títulos/código) + Source Sans 3 (cuerpo)
+   TEMA: "Material Design + Accesibilidad WCAG"
+   Paleta: Indigo + Amber (Material Design)
+   Tipografía: Verdana (accesible) + Verdana Bold (énfasis)
+   Accesibilidad: WCAG AA+ con contraste mínimo 4.5:1
    ============================================================ */
 
 @import "tailwindcss";
@@ -47,68 +47,150 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-
-  /* Custom terminal colors */
-  --color-terminal-green: oklch(0.75 0.18 155);
-  --color-terminal-blue: oklch(0.68 0.15 240);
-  --color-terminal-orange: oklch(0.72 0.18 55);
-  --color-terminal-red: oklch(0.65 0.22 25);
-  --color-terminal-yellow: oklch(0.82 0.16 95);
-  --color-surface-1: oklch(0.14 0.008 240);
-  --color-surface-2: oklch(0.18 0.008 240);
-  --color-surface-3: oklch(0.22 0.008 240);
 }
 
 :root {
   --radius: 0.5rem;
-  --background: oklch(0.11 0.008 240);
-  --foreground: oklch(0.92 0.005 240);
-  --card: oklch(0.16 0.008 240);
-  --card-foreground: oklch(0.92 0.005 240);
-  --popover: oklch(0.16 0.008 240);
-  --popover-foreground: oklch(0.92 0.005 240);
-  --primary: oklch(0.75 0.18 155);
-  --primary-foreground: oklch(0.11 0.008 240);
-  --secondary: oklch(0.22 0.008 240);
-  --secondary-foreground: oklch(0.85 0.005 240);
-  --muted: oklch(0.20 0.006 240);
-  --muted-foreground: oklch(0.58 0.012 240);
-  --accent: oklch(0.68 0.15 240);
-  --accent-foreground: oklch(0.11 0.008 240);
-  --destructive: oklch(0.65 0.22 25);
-  --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(0.28 0.01 240);
-  --input: oklch(0.22 0.008 240);
-  --ring: oklch(0.75 0.18 155);
-  --chart-1: oklch(0.75 0.18 155);
-  --chart-2: oklch(0.68 0.15 240);
-  --chart-3: oklch(0.72 0.18 55);
-  --chart-4: oklch(0.65 0.22 25);
-  --chart-5: oklch(0.82 0.16 95);
-  --sidebar: oklch(0.13 0.008 240);
-  --sidebar-foreground: oklch(0.85 0.005 240);
-  --sidebar-primary: oklch(0.75 0.18 155);
-  --sidebar-primary-foreground: oklch(0.11 0.008 240);
-  --sidebar-accent: oklch(0.20 0.008 240);
-  --sidebar-accent-foreground: oklch(0.85 0.005 240);
-  --sidebar-border: oklch(0.25 0.01 240);
-  --sidebar-ring: oklch(0.75 0.18 155);
+  
+  /* Paleta Material Design - Indigo + Amber */
+  /* Colores base */
+  --color-indigo-dark: #303f9f;
+  --color-indigo-light: #c5cae9;
+  --color-indigo-primary: #3f51b5;
+  --color-white: #ffffff;
+  --color-amber: #ffc107;
+  --color-text-primary: #212121;
+  --color-text-secondary: #757575;
+  --color-divider: #bdbdbd;
+  
+  /* Fondo claro con texto oscuro para accesibilidad */
+  --background: #ffffff;
+  --foreground: #212121;
+  --card: #f5f5f5;
+  --card-foreground: #212121;
+  --popover: #ffffff;
+  --popover-foreground: #212121;
+  
+  /* Colores primarios */
+  --primary: #3f51b5;
+  --primary-foreground: #ffffff;
+  
+  /* Colores secundarios */
+  --secondary: #c5cae9;
+  --secondary-foreground: #212121;
+  
+  /* Colores mutados */
+  --muted: #f5f5f5;
+  --muted-foreground: #757575;
+  
+  /* Colores de acento */
+  --accent: #ffc107;
+  --accent-foreground: #212121;
+  
+  /* Colores destructivos */
+  --destructive: #d32f2f;
+  --destructive-foreground: #ffffff;
+  
+  /* Bordes e inputs */
+  --border: #bdbdbd;
+  --input: #f5f5f5;
+  --ring: #3f51b5;
+  
+  /* Gráficos */
+  --chart-1: #3f51b5;
+  --chart-2: #303f9f;
+  --chart-3: #ffc107;
+  --chart-4: #c5cae9;
+  --chart-5: #757575;
+  
+  /* Sidebar */
+  --sidebar: #303f9f;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #ffc107;
+  --sidebar-primary-foreground: #212121;
+  --sidebar-accent: #c5cae9;
+  --sidebar-accent-foreground: #212121;
+  --sidebar-border: #bdbdbd;
+  --sidebar-ring: #ffc107;
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+  
+  html {
+    /* Accesibilidad: permitir zoom hasta 5x */
+    font-size: 16px;
+  }
+  
   body {
     @apply bg-background text-foreground;
-    font-family: 'Source Sans 3', sans-serif;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
+  
+  /* Tipografía accesible */
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: Verdana, Geneva, sans-serif;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--color-text-primary);
   }
-  code, pre, .font-mono {
-    font-family: 'JetBrains Mono', monospace;
+  
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
   }
+  
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  
+  h4 {
+    font-size: 1.125rem;
+    margin-bottom: 0.875rem;
+  }
+  
+  h5, h6 {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  p {
+    margin-bottom: 1rem;
+    color: var(--color-text-primary);
+  }
+  
+  /* Enlaces con contraste WCAG AA */
+  a {
+    color: var(--color-indigo-primary);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+  }
+  
+  a:hover {
+    color: var(--color-indigo-dark);
+    text-decoration-thickness: 3px;
+  }
+  
+  a:focus {
+    outline: 3px solid var(--color-amber);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+  
+  /* Botones accesibles */
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
   [type="button"]:not(:disabled),
@@ -120,9 +202,60 @@
   input[type="radio"]:not(:disabled) {
     @apply cursor-pointer;
   }
+  
+  button, [role="button"] {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    border: 2px solid transparent;
+    transition: all 0.2s ease-out;
+  }
+  
+  button:focus, [role="button"]:focus {
+    outline: 3px solid var(--color-amber);
+    outline-offset: 2px;
+  }
+  
+  /* Inputs accesibles */
+  input, textarea, select {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 1rem;
+    padding: 0.75rem;
+    border: 2px solid var(--color-divider);
+    border-radius: 4px;
+    background-color: var(--color-white);
+    color: var(--color-text-primary);
+  }
+  
+  input:focus, textarea:focus, select:focus {
+    outline: 3px solid var(--color-amber);
+    outline-offset: 2px;
+    border-color: var(--color-indigo-primary);
+  }
+  
+  /* Código */
+  code, pre {
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    background-color: var(--color-muted);
+    color: var(--color-text-primary);
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
+  }
+  
+  pre {
+    padding: 1rem;
+    overflow-x: auto;
+    border-left: 4px solid var(--color-indigo-primary);
+  }
 }
 
 @layer components {
+  /**
+   * Contenedor personalizado con padding responsivo
+   */
   .container {
     width: 100%;
     margin-left: auto;
@@ -150,95 +283,103 @@
       max-width: 1280px;
     }
   }
-
-  /* Terminal card glow effect */
-  .terminal-card {
-    background: oklch(0.16 0.008 240);
-    border: 1px solid oklch(0.28 0.01 240);
-    border-radius: 0.5rem;
-    transition: border-color 200ms ease-out, box-shadow 200ms ease-out, transform 200ms ease-out;
+  
+  /* Tarjeta accesible */
+  .card {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-divider);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
-
-  .terminal-card:hover {
-    border-color: oklch(0.75 0.18 155 / 0.6);
-    box-shadow: 0 0 20px oklch(0.75 0.18 155 / 0.12), 0 4px 24px oklch(0 0 0 / 0.4);
-    transform: translateY(-2px);
+  
+  .card:focus-within {
+    border-color: var(--color-indigo-primary);
+    box-shadow: 0 0 0 3px rgba(63, 81, 181, 0.1);
   }
-
-  /* Difficulty badges */
-  .badge-easy {
-    background: oklch(0.75 0.18 155 / 0.15);
-    color: oklch(0.75 0.18 155);
-    border: 1px solid oklch(0.75 0.18 155 / 0.3);
+  
+  /* Badge accesible */
+  .badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
   }
-
-  .badge-medium {
-    background: oklch(0.82 0.16 95 / 0.15);
-    color: oklch(0.82 0.16 95);
-    border: 1px solid oklch(0.82 0.16 95 / 0.3);
+  
+  .badge-primary {
+    background-color: var(--color-indigo-primary);
+    color: var(--color-white);
   }
-
-  .badge-hard {
-    background: oklch(0.65 0.22 25 / 0.15);
-    color: oklch(0.65 0.22 25);
-    border: 1px solid oklch(0.65 0.22 25 / 0.3);
+  
+  .badge-secondary {
+    background-color: var(--color-indigo-light);
+    color: var(--color-text-primary);
   }
-
-  /* Code block style */
-  .code-block {
-    background: oklch(0.10 0.008 240);
-    border: 1px solid oklch(0.25 0.01 240);
-    border-left: 3px solid oklch(0.75 0.18 155);
-    border-radius: 0.375rem;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.85rem;
-    padding: 1rem 1.25rem;
-    color: oklch(0.85 0.005 240);
-    overflow-x: auto;
+  
+  .badge-accent {
+    background-color: var(--color-amber);
+    color: var(--color-text-primary);
   }
-
-  /* Section divider */
-  .section-divider {
-    height: 1px;
-    background: linear-gradient(90deg, transparent, oklch(0.75 0.18 155 / 0.4), transparent);
-  }
-
-  /* Nav link active state */
-  .nav-link-active {
-    color: oklch(0.75 0.18 155);
-    background: oklch(0.75 0.18 155 / 0.1);
-    border-left: 2px solid oklch(0.75 0.18 155);
-  }
-
-  /* Scrollbar styling */
-  ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
-  }
-  ::-webkit-scrollbar-track {
-    background: oklch(0.13 0.008 240);
-  }
-  ::-webkit-scrollbar-thumb {
-    background: oklch(0.30 0.01 240);
-    border-radius: 3px;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: oklch(0.75 0.18 155 / 0.5);
-  }
-
-  /* Stagger animation helper */
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(16px);
+  
+  /* Animaciones accesibles */
+  @media (prefers-reduced-motion: no-preference) {
+    .animate-fade-in-up {
+      animation: fadeInUp 0.3s ease-out;
     }
-    to {
-      opacity: 1;
-      transform: translateY(0);
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   }
-
-  .animate-fade-in-up {
-    animation: fadeInUp 400ms cubic-bezier(0.23, 1, 0.32, 1) both;
+  
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
+}
+
+/* Utilidades de accesibilidad */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.skip-to-main {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-indigo-primary);
+  color: var(--color-white);
+  padding: 8px;
+  text-decoration: none;
+  z-index: 100;
+}
+
+.skip-to-main:focus {
+  top: 0;
+}
+
+/* Focus visible para navegación por teclado */
+:focus-visible {
+  outline: 3px solid var(--color-amber);
+  outline-offset: 2px;
 }

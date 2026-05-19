@@ -1,6 +1,7 @@
 // ============================================================
 // COMPONENTE: Sidebar — Navegación lateral fija
-// Tema: Terminal Educativo — SMR 1º CFGM
+// Tema: Material Design + Accesibilidad WCAG
+// Paleta: Indigo + Amber
 // ============================================================
 
 import { useState } from "react";
@@ -36,32 +37,32 @@ export default function Sidebar({ activeId, onSelect, onCollapse }: SidebarProps
         collapsed ? "w-16" : "w-64"
       }`}
       style={{
-        background: "oklch(0.13 0.008 240)",
-        borderRight: "1px solid oklch(0.25 0.01 240)",
+        background: "#303f9f",
+        borderRight: "1px solid #bdbdbd",
       }}
     >
       {/* Header */}
       <div
         className="flex items-center justify-between px-4 py-5"
-        style={{ borderBottom: "1px solid oklch(0.22 0.01 240)" }}
+        style={{ borderBottom: "1px solid #bdbdbd" }}
       >
         {!collapsed && (
           <div className="flex flex-col">
             <span
               className="text-xs font-bold tracking-widest uppercase"
-              style={{ color: "oklch(0.75 0.18 155)", fontFamily: "'JetBrains Mono', monospace" }}
+              style={{ color: "#ffc107", fontFamily: "Verdana, Geneva, sans-serif" }}
             >
               SMR 1º CFGM
             </span>
-            <span className="text-xs mt-0.5" style={{ color: "oklch(0.55 0.01 240)" }}>
+            <span className="text-xs mt-0.5" style={{ color: "#c5cae9", fontFamily: "Verdana, Geneva, sans-serif" }}>
               Transformación de PC
             </span>
           </div>
         )}
         <button
           onClick={() => { const next = !collapsed; setCollapsed(next); onCollapse?.(next); }}
-          className="p-1.5 rounded transition-colors hover:bg-white/5"
-          style={{ color: "oklch(0.55 0.01 240)" }}
+          className="p-1.5 rounded transition-colors hover:opacity-80"
+          style={{ color: "#c5cae9" }}
           aria-label="Colapsar menú"
         >
           <svg
@@ -86,11 +87,12 @@ export default function Sidebar({ activeId, onSelect, onCollapse }: SidebarProps
       <button
         onClick={() => onSelect("home")}
         className={`flex items-center gap-3 px-4 py-3 text-sm transition-all duration-150 ${
-          activeId === "home" ? "nav-link-active" : "hover:bg-white/5"
+          activeId === "home" ? "nav-link-active" : "hover:opacity-80"
         }`}
         style={{
-          color: activeId === "home" ? "oklch(0.75 0.18 155)" : "oklch(0.65 0.01 240)",
-          fontFamily: "'JetBrains Mono', monospace",
+          color: activeId === "home" ? "#ffc107" : "#c5cae9",
+          fontFamily: "Verdana, Geneva, sans-serif",
+          fontWeight: activeId === "home" ? "bold" : "normal",
         }}
       >
         <span className="text-base flex-shrink-0">🏠</span>
@@ -102,7 +104,7 @@ export default function Sidebar({ activeId, onSelect, onCollapse }: SidebarProps
         <div className="px-4 py-2">
           <span
             className="text-xs uppercase tracking-widest"
-            style={{ color: "oklch(0.40 0.01 240)", fontFamily: "'JetBrains Mono', monospace" }}
+            style={{ color: "#c5cae9", fontFamily: "Verdana, Geneva, sans-serif", fontSize: "0.7rem" }}
           >
             Sistemas
           </span>
@@ -118,10 +120,12 @@ export default function Sidebar({ activeId, onSelect, onCollapse }: SidebarProps
               key={sys.id}
               onClick={() => onSelect(sys.id)}
               className={`w-full flex items-center gap-3 px-4 py-2.5 text-sm transition-all duration-150 ${
-                isActive ? "nav-link-active" : "hover:bg-white/5"
+                isActive ? "nav-link-active" : "hover:opacity-80"
               }`}
               style={{
-                color: isActive ? "oklch(0.75 0.18 155)" : "oklch(0.65 0.01 240)",
+                color: isActive ? "#ffc107" : "#c5cae9",
+                fontFamily: "Verdana, Geneva, sans-serif",
+                fontWeight: isActive ? "bold" : "normal",
               }}
               title={collapsed ? sys.name : undefined}
             >
@@ -132,11 +136,11 @@ export default function Sidebar({ activeId, onSelect, onCollapse }: SidebarProps
                 <div className="flex flex-col items-start min-w-0">
                   <span
                     className="text-xs font-medium truncate w-full"
-                    style={{ fontFamily: "'JetBrains Mono', monospace" }}
+                    style={{ fontFamily: "Verdana, Geneva, sans-serif" }}
                   >
                     {sys.name}
                   </span>
-                  <span className="text-xs truncate w-full" style={{ color: "oklch(0.45 0.01 240)", fontSize: "0.65rem" }}>
+                  <span className="text-xs truncate w-full" style={{ color: "#c5cae9", fontSize: "0.65rem", fontFamily: "Verdana, Geneva, sans-serif" }}>
                     {sys.categoryLabel}
                   </span>
                 </div>
@@ -151,7 +155,7 @@ export default function Sidebar({ activeId, onSelect, onCollapse }: SidebarProps
         <div className="px-4 py-2">
           <span
             className="text-xs uppercase tracking-widest"
-            style={{ color: "oklch(0.40 0.01 240)", fontFamily: "'JetBrains Mono', monospace" }}
+            style={{ color: "#c5cae9", fontFamily: "Verdana, Geneva, sans-serif", fontSize: "0.7rem" }}
           >
             Recursos
           </span>
@@ -164,10 +168,12 @@ export default function Sidebar({ activeId, onSelect, onCollapse }: SidebarProps
             key={page.id}
             onClick={() => onSelect(page.id)}
             className={`w-full flex items-center gap-3 px-4 py-2.5 text-sm transition-all duration-150 ${
-              isActive ? "nav-link-active" : "hover:bg-white/5"
+              isActive ? "nav-link-active" : "hover:opacity-80"
             }`}
             style={{
-              color: isActive ? "oklch(0.75 0.18 155)" : "oklch(0.65 0.01 240)",
+              color: isActive ? "#ffc107" : "#c5cae9",
+              fontFamily: "Verdana, Geneva, sans-serif",
+              fontWeight: isActive ? "bold" : "normal",
             }}
             title={collapsed ? page.label : undefined}
           >
@@ -176,11 +182,11 @@ export default function Sidebar({ activeId, onSelect, onCollapse }: SidebarProps
               <div className="flex flex-col items-start min-w-0">
                 <span
                   className="text-xs font-medium truncate w-full"
-                  style={{ fontFamily: "'JetBrains Mono', monospace" }}
+                  style={{ fontFamily: "Verdana, Geneva, sans-serif" }}
                 >
                   {page.label}
                 </span>
-                <span className="text-xs truncate w-full" style={{ color: "oklch(0.45 0.01 240)", fontSize: "0.65rem" }}>
+                <span className="text-xs truncate w-full" style={{ color: "#c5cae9", fontSize: "0.65rem", fontFamily: "Verdana, Geneva, sans-serif" }}>
                   {page.subtitle}
                 </span>
               </div>
@@ -193,12 +199,12 @@ export default function Sidebar({ activeId, onSelect, onCollapse }: SidebarProps
       {!collapsed && (
         <div
           className="px-4 py-4"
-          style={{ borderTop: "1px solid oklch(0.22 0.01 240)" }}
+          style={{ borderTop: "1px solid #bdbdbd" }}
         >
-          <p className="text-xs" style={{ color: "oklch(0.38 0.01 240)", fontFamily: "'JetBrains Mono', monospace" }}>
+          <p className="text-xs" style={{ color: "#c5cae9", fontFamily: "Verdana, Geneva, sans-serif" }}>
             v1.0 · 2024/25
           </p>
-          <p className="text-xs mt-0.5" style={{ color: "oklch(0.35 0.01 240)", fontSize: "0.65rem" }}>
+          <p className="text-xs mt-0.5" style={{ color: "#c5cae9", fontSize: "0.65rem", fontFamily: "Verdana, Geneva, sans-serif" }}>
             Módulo: Montaje y Mantenimiento
           </p>
         </div>

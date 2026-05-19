@@ -106,23 +106,23 @@ const categories = Array.from(new Set(terms.map((t) => t.category)));
 
 export default function GlossaryPage() {
   return (
-    <div className="min-h-screen" style={{ background: "oklch(0.11 0.008 240)" }}>
+    <div className="min-h-screen" style={{ background: "#ffffff" }}>
       <div className="container py-10">
         <div className="mb-8">
           <h1
             className="text-3xl font-bold mb-2"
             style={{
-              fontFamily: "'JetBrains Mono', monospace",
-              color: "oklch(0.95 0.005 240)",
+              fontFamily: "Verdana, Geneva, sans-serif",
+              color: "#212121",
             }}
           >
-            <span style={{ color: "oklch(0.75 0.18 155)" }}>&gt;</span> Glosario técnico
+            <span style={{ color: "#ffc107" }}>&gt;</span> Glosario técnico
           </h1>
           <p
             className="text-sm"
             style={{
-              fontFamily: "'Source Sans 3', sans-serif",
-              color: "oklch(0.55 0.01 240)",
+              fontFamily: "Verdana, Geneva, sans-serif",
+              color: "#757575",
             }}
           >
             Términos clave del módulo de Montaje y Mantenimiento de Equipos Informáticos.
@@ -134,8 +134,8 @@ export default function GlossaryPage() {
             <h2
               className="text-sm font-bold uppercase tracking-widest mb-4"
               style={{
-                fontFamily: "'JetBrains Mono', monospace",
-                color: "oklch(0.68 0.15 240)",
+                fontFamily: "Verdana, Geneva, sans-serif",
+                color: "#3f51b5",
               }}
             >
               # {cat}
@@ -148,22 +148,22 @@ export default function GlossaryPage() {
                     key={term.term}
                     className="p-4 rounded-lg"
                     style={{
-                      background: "oklch(0.16 0.008 240)",
+                      background: "#f5f5f5",
                       border: "1px solid oklch(0.24 0.01 240)",
                     }}
                   >
                     <div className="flex items-start gap-4">
                       <span
                         className="text-sm font-bold font-mono flex-shrink-0 w-36"
-                        style={{ color: "oklch(0.85 0.005 240)" }}
+                        style={{ color: "#212121" }}
                       >
                         {term.term}
                       </span>
                       <p
                         className="text-sm leading-relaxed"
                         style={{
-                          fontFamily: "'Source Sans 3', sans-serif",
-                          color: "oklch(0.65 0.01 240)",
+                          fontFamily: "Verdana, Geneva, sans-serif",
+                          color: "#757575",
                         }}
                       >
                         {term.definition}

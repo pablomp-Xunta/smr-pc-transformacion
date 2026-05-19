@@ -6,7 +6,7 @@
 const resources = [
   {
     category: "FreeBSD",
-    color: "oklch(0.65 0.22 25)",
+    color: "#d32f2f",
     items: [
       {
         title: "FreeBSD Handbook (Español)",
@@ -24,7 +24,7 @@ const resources = [
   },
   {
     category: "Proxmox VE",
-    color: "oklch(0.72 0.18 55)",
+    color: "#d32f2f",
     items: [
       {
         title: "Proxmox VE Wiki",
@@ -42,7 +42,7 @@ const resources = [
   },
   {
     category: "TrueNAS",
-    color: "oklch(0.68 0.15 240)",
+    color: "#3f51b5",
     items: [
       {
         title: "TrueNAS Documentation",
@@ -60,7 +60,7 @@ const resources = [
   },
   {
     category: "OPNsense",
-    color: "oklch(0.72 0.18 55)",
+    color: "#d32f2f",
     items: [
       {
         title: "OPNsense Documentation",
@@ -78,7 +78,7 @@ const resources = [
   },
   {
     category: "MikroTik RouterOS",
-    color: "oklch(0.75 0.18 155)",
+    color: "#ffc107",
     items: [
       {
         title: "MikroTik Wiki",
@@ -96,7 +96,7 @@ const resources = [
   },
   {
     category: "WordPress",
-    color: "oklch(0.68 0.15 240)",
+    color: "#3f51b5",
     items: [
       {
         title: "WordPress.org (Español)",
@@ -114,7 +114,7 @@ const resources = [
   },
   {
     category: "XAMPP",
-    color: "oklch(0.72 0.18 55)",
+    color: "#d32f2f",
     items: [
       {
         title: "Apache Friends",
@@ -132,7 +132,7 @@ const resources = [
   },
   {
     category: "Herramientas generales",
-    color: "oklch(0.75 0.18 155)",
+    color: "#ffc107",
     items: [
       {
         title: "Rufus — Crear USB bootable",
@@ -158,23 +158,23 @@ const resources = [
 
 export default function ResourcesPage() {
   return (
-    <div className="min-h-screen" style={{ background: "oklch(0.11 0.008 240)" }}>
+    <div className="min-h-screen" style={{ background: "#ffffff" }}>
       <div className="container py-10">
         <div className="mb-8">
           <h1
             className="text-3xl font-bold mb-2"
             style={{
-              fontFamily: "'JetBrains Mono', monospace",
-              color: "oklch(0.95 0.005 240)",
+              fontFamily: "Verdana, Geneva, sans-serif",
+              color: "#212121",
             }}
           >
-            <span style={{ color: "oklch(0.75 0.18 155)" }}>&gt;</span> Recursos y enlaces
+            <span style={{ color: "#ffc107" }}>&gt;</span> Recursos y enlaces
           </h1>
           <p
             className="text-sm"
             style={{
-              fontFamily: "'Source Sans 3', sans-serif",
-              color: "oklch(0.55 0.01 240)",
+              fontFamily: "Verdana, Geneva, sans-serif",
+              color: "#757575",
             }}
           >
             Documentación oficial, comunidades y herramientas para cada sistema.
@@ -187,7 +187,7 @@ export default function ResourcesPage() {
               <h2
                 className="text-sm font-bold uppercase tracking-widest mb-4 flex items-center gap-2"
                 style={{
-                  fontFamily: "'JetBrains Mono', monospace",
+                  fontFamily: "Verdana, Geneva, sans-serif",
                   color: section.color,
                 }}
               >
@@ -206,7 +206,7 @@ export default function ResourcesPage() {
                     rel="noopener noreferrer"
                     className="block p-4 rounded-lg transition-all hover:border-opacity-60"
                     style={{
-                      background: "oklch(0.16 0.008 240)",
+                      background: "#f5f5f5",
                       border: "1px solid oklch(0.24 0.01 240)",
                       textDecoration: "none",
                     }}
@@ -223,8 +223,8 @@ export default function ResourcesPage() {
                       <h3
                         className="text-sm font-semibold"
                         style={{
-                          fontFamily: "'JetBrains Mono', monospace",
-                          color: "oklch(0.88 0.005 240)",
+                          fontFamily: "Verdana, Geneva, sans-serif",
+                          color: "#212121",
                         }}
                       >
                         {item.title}
@@ -232,9 +232,9 @@ export default function ResourcesPage() {
                       <span
                         className="text-xs px-2 py-0.5 rounded font-mono flex-shrink-0"
                         style={{
-                          background: "oklch(0.20 0.008 240)",
-                          color: "oklch(0.50 0.01 240)",
-                          border: "1px solid oklch(0.25 0.01 240)",
+                          background: "#f5f5f5",
+                          color: "#757575",
+                          border: "1px solid #bdbdbd",
                         }}
                       >
                         {item.type}
@@ -243,8 +243,8 @@ export default function ResourcesPage() {
                     <p
                       className="text-xs leading-relaxed"
                       style={{
-                        fontFamily: "'Source Sans 3', sans-serif",
-                        color: "oklch(0.58 0.01 240)",
+                        fontFamily: "Verdana, Geneva, sans-serif",
+                        color: "#757575",
                       }}
                     >
                       {item.description}
