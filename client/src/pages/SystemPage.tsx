@@ -12,7 +12,7 @@ interface SystemPageProps {
 }
 
 export default function SystemPage({ system, onBack }: SystemPageProps) {
-  const [activeTab, setActiveTab] = useState<"overview" | "steps" | "hardware" | "pros">(
+  const [activeTab, setActiveTab] = useState<"overview" | "steps" | "hardware" | "pros" | "plex">(
     "overview"
   );
   const diff = difficultyConfig[system.difficulty];
@@ -22,6 +22,7 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
     { id: "steps", label: "Instalación" },
     { id: "hardware", label: "Hardware" },
     { id: "pros", label: "Ventajas/Desventajas" },
+    ...(system.id === "truenas" ? [{ id: "plex", label: "Plex Multimedia" }] : []),
   ] as const;
 
   return (
@@ -167,7 +168,7 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
             {tabs.map((tab) => (
               <button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
+                onClick={() => setActiveTab(tab.id as "overview" | "steps" | "hardware" | "pros" | "plex")}
                 className="px-5 py-3 text-sm font-mono transition-all relative"
                 style={{
                   color:
@@ -564,6 +565,227 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
                 {system.id === "xampp" &&
                   "XAMPP es ideal para el aula y el desarrollo local. Si quieres probar aplicaciones PHP o instalar WordPress en tu PC sin complicaciones, XAMPP es la forma más rápida de empezar."}
               </p>
+            </div>
+          </div>
+        )}
+
+        {/* PLEX */}
+        {activeTab === "plex" && system.id === "truenas" && (
+          <div className="max-w-3xl animate-fade-in-up">
+            <h2
+              className="text-lg font-bold mb-6"
+              style={{
+                fontFamily: "'JetBrains Mono', monospace",
+                color: "oklch(0.90 0.005 240)",
+              }}
+            >
+              <span style={{ color: "oklch(0.75 0.18 155)" }}>//</span> Servidor Plex en TrueNAS
+            </h2>
+
+            <p
+              className="text-base leading-relaxed mb-6"
+              style={{
+                fontFamily: "'Source Sans 3', sans-serif",
+                color: "oklch(0.70 0.01 240)",
+                lineHeight: "1.8",
+              }}
+            >
+              Plex es una aplicación multimedia que transforma TrueNAS en un servidor de streaming personal. Centraliza tu biblioteca de películas, series y música, permitiendo acceso desde cualquier dispositivo en la red local o remotamente a través de internet.
+            </p>
+
+            {/* Installation section */}
+            <h3
+              className="text-base font-bold mb-4"
+              style={{
+                fontFamily: "'JetBrains Mono', monospace",
+                color: "oklch(0.85 0.005 240)",
+              }}
+            >
+              <span style={{ color: "oklch(0.68 0.15 240)" }}>#</span> Instalación en TrueNAS
+            </h3>
+            <div
+              className="p-5 rounded-lg mb-6"
+              style={{
+                background: "oklch(0.16 0.008 240)",
+                border: "1px solid oklch(0.24 0.01 240)",
+              }}
+            >
+              <div className="space-y-4">
+                <div>
+                  <h4
+                    className="text-sm font-bold mb-2"
+                    style={{
+                      fontFamily: "'JetBrains Mono', monospace",
+                      color: "oklch(0.88 0.005 240)",
+                    }}
+                  >
+                    TrueNAS SCALE (recomendado):
+                  </h4>
+                  <ol className="space-y-2 ml-4">
+                    {[
+                      "Ve a Apps en el menú principal",
+                      "Busca 'Plex' en la sección Available",
+                      "Haz clic en Install y configura la ruta de almacenamiento",
+                      "Espera a que se descargue e instale la aplicación",
+                      "Accede a Plex en http://IP-TrueNAS:32400/web",
+                    ].map((step, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <span
+                          className="text-xs font-mono flex-shrink-0 mt-0.5"
+                          style={{ color: "oklch(0.75 0.18 155)" }}
+                        >
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                        <span
+                          className="text-sm"
+                          style={{
+                            fontFamily: "'Source Sans 3', sans-serif",
+                            color: "oklch(0.65 0.01 240)",
+                          }}
+                        >
+                          {step}
+                        </span>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              </div>
+            </div>
+
+            {/* Configuration section */}
+            <h3
+              className="text-base font-bold mb-4"
+              style={{
+                fontFamily: "'JetBrains Mono', monospace",
+                color: "oklch(0.85 0.005 240)",
+              }}
+            >
+              <span style={{ color: "oklch(0.68 0.15 240)" }}>#</span> Configuración de la biblioteca
+            </h3>
+            <div className="space-y-3 mb-6">
+              {[
+                {
+                  title: "Crear carpetas de contenido",
+                  desc: "En TrueNAS, crea datasets para películas, series y música. Ej: /mnt/pool/media/movies, /mnt/pool/media/tv, /mnt/pool/media/music",
+                },
+                {
+                  title: "Añadir librerías en Plex",
+                  desc: "En Plex, ve a Configuración > Librerías > Añadir biblioteca. Selecciona el tipo (Películas, Series, Música) y apunta a la carpeta en TrueNAS.",
+                },
+                {
+                  title: "Configurar usuarios",
+                  desc: "En Plex, crea usuarios para familia/amigos. Configura qué contenido puede ver cada usuario desde Configuración > Usuarios.",
+                },
+                {
+                  title: "Habilitar acceso remoto",
+                  desc: "En Plex, ve a Configuración > Acceso remoto. Habilita para acceder a tu biblioteca desde fuera de casa (requiere cuenta Plex).",
+                },
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="p-4 rounded-lg"
+                  style={{
+                    background: "oklch(0.16 0.008 240)",
+                    border: "1px solid oklch(0.24 0.01 240)",
+                  }}
+                >
+                  <h4
+                    className="text-sm font-bold mb-1"
+                    style={{
+                      fontFamily: "'JetBrains Mono', monospace",
+                      color: "oklch(0.88 0.005 240)",
+                    }}
+                  >
+                    {item.title}
+                  </h4>
+                  <p
+                    className="text-sm"
+                    style={{
+                      fontFamily: "'Source Sans 3', sans-serif",
+                      color: "oklch(0.65 0.01 240)",
+                    }}
+                  >
+                    {item.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {/* Benefits section */}
+            <h3
+              className="text-base font-bold mb-4"
+              style={{
+                fontFamily: "'JetBrains Mono', monospace",
+                color: "oklch(0.85 0.005 240)",
+              }}
+            >
+              <span style={{ color: "oklch(0.75 0.18 155)" }}>✓</span> Ventajas de Plex en TrueNAS
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
+              {[
+                "Centraliza toda tu biblioteca multimedia",
+                "Acceso desde TV, móvil, tablet, PC",
+                "Transcodificación automática según ancho de banda",
+                "Interfaz moderna y fácil de usar",
+                "Sincronización automática de nuevos contenidos",
+                "Soporte para subtítulos y múltiples idiomas",
+                "Estadísticas de visualización",
+                "Integración perfecta con el almacenamiento ZFS",
+              ].map((benefit, i) => (
+                <div
+                  key={i}
+                  className="flex items-start gap-2 p-3 rounded-lg"
+                  style={{
+                    background: "oklch(0.16 0.008 240)",
+                    border: "1px solid oklch(0.24 0.01 240)",
+                  }}
+                >
+                  <span style={{ color: "oklch(0.75 0.18 155)" }}>→</span>
+                  <span
+                    className="text-sm"
+                    style={{
+                      fontFamily: "'Source Sans 3', sans-serif",
+                      color: "oklch(0.65 0.01 240)",
+                    }}
+                  >
+                    {benefit}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            {/* Requirements */}
+            <div
+              className="p-5 rounded-lg"
+              style={{
+                background: "oklch(0.68 0.15 240 / 0.08)",
+                border: "1px solid oklch(0.68 0.15 240 / 0.25)",
+              }}
+            >
+              <div className="flex items-start gap-3">
+                <span className="text-xl">⚙️</span>
+                <div>
+                  <h4
+                    className="text-sm font-bold mb-2"
+                    style={{
+                      fontFamily: "'JetBrains Mono', monospace",
+                      color: "oklch(0.68 0.15 240)",
+                    }}
+                  >
+                    Requisitos para transcodificación
+                  </h4>
+                  <p
+                    className="text-sm leading-relaxed"
+                    style={{
+                      fontFamily: "'Source Sans 3', sans-serif",
+                      color: "oklch(0.65 0.01 240)",
+                      lineHeight: "1.7",
+                    }}
+                  >
+                    Para que Plex transcodifique videos en tiempo real (necesario si tus clientes tienen conexión lenta), necesitas una CPU potente. Intel Quick Sync o AMD VCE aceleran significativamente la transcodificación. Mínimo 2-4 GB RAM adicionales para Plex. Sin transcodificación, Plex solo necesita CPU modesta.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         )}

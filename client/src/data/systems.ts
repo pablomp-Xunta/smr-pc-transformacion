@@ -205,8 +205,9 @@ export const systems: System[] = [
       "Servidor de ficheros para red local",
       "Backup centralizado de equipos",
       "Almacenamiento para máquinas virtuales (iSCSI/NFS)",
-      "Servidor multimedia doméstico (Plex, Jellyfin)",
+      "Servidor multimedia doméstico (Plex, Jellyfin, Kodi)",
       "Archivo de datos con protección ZFS",
+      "Servidor Plex con biblioteca multimedia centralizada",
     ],
     hardware: {
       cpu: "x86-64 moderno (64-bit obligatorio)",
@@ -241,23 +242,30 @@ export const systems: System[] = [
         description:
           "Programa snapshots automáticos, scrubs de ZFS y tareas de replicación para proteger los datos.",
       },
+      {
+        title: "Instalar y configurar Plex (opcional)",
+        description:
+          "En TrueNAS SCALE, instala Plex desde Apps. Crea una carpeta para películas/series, configura la biblioteca y accede desde https://IP:32400/web en la red local.",
+      },
     ],
     pros: [
       "ZFS ofrece protección de datos superior",
       "Interfaz web muy completa",
-      "Plugins para ampliar funcionalidad (Plex, etc.)",
+      "Aplicaciones integradas (Plex, Jellyfin, etc.) en SCALE",
       "Snapshots y replicación integrados",
       "Completamente gratuito",
+      "Ideal para servidor multimedia con Plex",
     ],
     cons: [
       "Requiere bastante RAM (ZFS es intensivo en memoria)",
       "ECC RAM recomendada pero cara",
       "No instalar en los mismos discos que los datos",
       "Actualizaciones pueden ser complejas",
+      "Plex requiere CPU potente para transcodificación",
     ],
     officialUrl: "https://www.truenas.com",
     logoEmoji: "💾",
-    tags: ["NAS", "ZFS", "FreeBSD", "SMB", "Almacenamiento"],
+    tags: ["NAS", "ZFS", "FreeBSD", "SMB", "Almacenamiento", "Plex"],
   },
   {
     id: "opnsense",
