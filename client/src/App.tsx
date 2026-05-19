@@ -1,38 +1,65 @@
+// ============================================================
+// APP — Layout principal con sidebar y navegación
+// Tema: Terminal Educativo — SMR 1º CFGM
+// ============================================================
+
+import { useState } from "react";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import NotFound from "@/pages/NotFound";
-import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
-import Home from "./pages/Home";
+import Sidebar from "./components/Sidebar";
+import HomePage from "./pages/HomePage";
+import SystemPage from "./pages/SystemPage";
+import GlossaryPage from "./pages/GlossaryPage";
+import ResourcesPage from "./pages/ResourcesPage";
+import { systems } from "./data/systems";
 
+function MainApp() {
+  const [activeId, setActiveId] = useState<string>("home");
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
-function Router() {
+  const activeSystem = systems.find((s) => s.id === activeId);
+
+  const handleSelect = (id: string) => {
+    setActiveId(id);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <Switch>
-      <Route path={"/"} component={Home} />
-      <Route path={"/404"} component={NotFound} />
-      {/* Final fallback route */}
-      <Route component={NotFound} />
-    </Switch>
+    <div className="flex min-h-screen" style={{ background: "oklch(0.11 0.008 240)" }}>
+      {/* Sidebar */}
+      <Sidebar activeId={activeId} onSelect={handleSelect} onCollapse={setSidebarCollapsed} />
+
+      {/* Main content — offset for sidebar */}
+      <main
+        className="flex-1 transition-all duration-300"
+        style={{ marginLeft: sidebarCollapsed ? "64px" : "256px" }}
+      >
+
+        {activeId === "home" ? (
+          <HomePage onSelect={handleSelect} />
+        ) : activeId === "glossary" ? (
+          <GlossaryPage />
+        ) : activeId === "resources" ? (
+          <ResourcesPage />
+        ) : activeSystem ? (
+          <SystemPage system={activeSystem} onBack={() => handleSelect("home")} />
+        ) : (
+          <HomePage onSelect={handleSelect} />
+        )}
+      </main>
+    </div>
   );
 }
-
-// NOTE: About Theme
-// - First choose a default theme according to your design style (dark or light bg), than change color palette in index.css
-//   to keep consistent foreground/background color across components
-// - If you want to make theme switchable, pass `switchable` ThemeProvider and use `useTheme` hook
 
 function App() {
   return (
     <ErrorBoundary>
-      <ThemeProvider
-        defaultTheme="light"
-        // switchable
-      >
+      <ThemeProvider defaultTheme="dark">
         <TooltipProvider>
           <Toaster />
-          <Router />
+          <MainApp />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>
