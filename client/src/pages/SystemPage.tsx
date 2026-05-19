@@ -12,13 +12,14 @@ interface SystemPageProps {
 }
 
 export default function SystemPage({ system, onBack }: SystemPageProps) {
-  const [activeTab, setActiveTab] = useState<"overview" | "steps" | "hardware" | "pros" | "plex">(
+  const [activeTab, setActiveTab] = useState<"overview" | "steps" | "hardware" | "pros" | "plex" | "getting-started">(
     "overview"
   );
   const diff = difficultyConfig[system.difficulty];
 
   const tabs = [
     { id: "overview", label: "Descripción" },
+    { id: "getting-started", label: "Primeros pasos" },
     { id: "steps", label: "Instalación" },
     { id: "hardware", label: "Hardware" },
     { id: "pros", label: "Ventajas/Desventajas" },
@@ -247,6 +248,153 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
                   >
                     {uc}
                   </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* GETTING STARTED */}
+        {activeTab === "getting-started" && (
+          <div className="max-w-3xl animate-fade-in-up">
+            <h2
+              className="text-lg font-bold mb-6"
+              style={{
+                fontFamily: "'JetBrains Mono', monospace",
+                color: "oklch(0.90 0.005 240)",
+              }}
+            >
+              <span style={{ color: "oklch(0.75 0.18 155)" }}>{">"}  </span> Primeros pasos
+            </h2>
+
+            {/* Quick Start */}
+            <h3
+              className="text-base font-bold mb-4"
+              style={{
+                fontFamily: "'JetBrains Mono', monospace",
+                color: "oklch(0.85 0.005 240)",
+              }}
+            >
+              <span style={{ color: "oklch(0.68 0.15 240)" }}>#</span> Inicio rápido
+            </h3>
+            <div
+              className="p-5 rounded-lg mb-6"
+              style={{
+                background: "oklch(0.16 0.008 240)",
+                border: "1px solid oklch(0.24 0.01 240)",
+              }}
+            >
+              <ol className="space-y-2">
+                {system.gettingStarted.quickStart.map((step, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span
+                      className="text-xs font-mono flex-shrink-0 mt-0.5"
+                      style={{ color: "oklch(0.75 0.18 155)" }}
+                    >
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span
+                      className="text-sm"
+                      style={{
+                        fontFamily: "'Source Sans 3', sans-serif",
+                        color: "oklch(0.65 0.01 240)",
+                      }}
+                    >
+                      {step}
+                    </span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+
+            {/* First Tasks */}
+            <h3
+              className="text-base font-bold mb-4"
+              style={{
+                fontFamily: "'JetBrains Mono', monospace",
+                color: "oklch(0.85 0.005 240)",
+              }}
+            >
+              <span style={{ color: "oklch(0.68 0.15 240)" }}>#</span> Primeras tareas prácticas
+            </h3>
+            <div className="space-y-3 mb-6">
+              {system.gettingStarted.firstTasks.map((task, i) => (
+                <div
+                  key={i}
+                  className="p-4 rounded-lg"
+                  style={{
+                    background: "oklch(0.16 0.008 240)",
+                    border: "1px solid oklch(0.24 0.01 240)",
+                  }}
+                >
+                  <div className="flex items-start justify-between gap-4 mb-2">
+                    <h4
+                      className="text-sm font-bold"
+                      style={{
+                        fontFamily: "'JetBrains Mono', monospace",
+                        color: "oklch(0.88 0.005 240)",
+                      }}
+                    >
+                      {task.title}
+                    </h4>
+                    <span
+                      className="text-xs font-mono flex-shrink-0"
+                      style={{ color: "oklch(0.68 0.15 240)" }}
+                    >
+                      ⏱ {task.time}
+                    </span>
+                  </div>
+                  <p
+                    className="text-sm"
+                    style={{
+                      fontFamily: "'Source Sans 3', sans-serif",
+                      color: "oklch(0.65 0.01 240)",
+                    }}
+                  >
+                    {task.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {/* Common Mistakes */}
+            <h3
+              className="text-base font-bold mb-4"
+              style={{
+                fontFamily: "'JetBrains Mono', monospace",
+                color: "oklch(0.85 0.005 240)",
+              }}
+            >
+              <span style={{ color: "oklch(0.75 0.18 155)" }}>⚠</span> Errores comunes
+            </h3>
+            <div className="space-y-3">
+              {system.gettingStarted.commonMistakes.map((item, i) => (
+                <div
+                  key={i}
+                  className="p-4 rounded-lg"
+                  style={{
+                    background: "oklch(0.16 0.008 240)",
+                    border: "1px solid oklch(0.24 0.01 240)",
+                  }}
+                >
+                  <h4
+                    className="text-sm font-bold mb-2"
+                    style={{
+                      fontFamily: "'JetBrains Mono', monospace",
+                      color: "oklch(0.88 0.005 240)",
+                    }}
+                  >
+                    ❌ {item.mistake}
+                  </h4>
+                  <p
+                    className="text-sm"
+                    style={{
+                      fontFamily: "'Source Sans 3', sans-serif",
+                      color: "oklch(0.65 0.01 240)",
+                    }}
+                  >
+                    <strong style={{ color: "oklch(0.75 0.18 155)" }}>Solución:</strong> {item.solution}
+                  </p>
                 </div>
               ))}
             </div>

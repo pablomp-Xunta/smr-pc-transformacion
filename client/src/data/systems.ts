@@ -18,6 +18,12 @@ export interface Step {
   command?: string;
 }
 
+export interface GettingStarted {
+  quickStart: string[];
+  firstTasks: { title: string; description: string; time: string }[];
+  commonMistakes: { mistake: string; solution: string }[];
+}
+
 export interface System {
   id: string;
   name: string;
@@ -38,6 +44,7 @@ export interface System {
   officialUrl: string;
   logoEmoji: string;
   tags: string[];
+  gettingStarted: GettingStarted;
 }
 
 export const systems: System[] = [
@@ -114,6 +121,47 @@ export const systems: System[] = [
     officialUrl: "https://www.freebsd.org",
     logoEmoji: "😈",
     tags: ["Unix", "BSD", "ZFS", "Servidor", "Open Source"],
+    gettingStarted: {
+      quickStart: [
+        "Arranca desde el USB de instalación",
+        "Selecciona 'Install' en el menú de bsdinstall",
+        "Particiona el disco (recomendado: UFS2 o ZFS)",
+        "Configura la red (DHCP o IP estática)",
+        "Crea usuario root y usuario normal",
+        "Reinicia y accede con tu usuario",
+      ],
+      firstTasks: [
+        {
+          title: "Actualizar el sistema",
+          description: "Ejecuta 'freebsd-update fetch install' para aplicar parches de seguridad",
+          time: "5-10 min",
+        },
+        {
+          title: "Instalar un editor de texto",
+          description: "Instala nano o vim: 'pkg install nano' para editar ficheros de configuración",
+          time: "2 min",
+        },
+        {
+          title: "Explorar el sistema de ficheros",
+          description: "Navega por /usr/local, /etc, /var para entender la estructura de directorios BSD",
+          time: "10 min",
+        },
+      ],
+      commonMistakes: [
+        {
+          mistake: "Instalar en los mismos discos que otros SOs sin particionar bien",
+          solution: "Usa fdisk o gpart para crear particiones separadas. Siempre haz backup primero.",
+        },
+        {
+          mistake: "Olvidar instalar 'sudo' y no poder ejecutar comandos con privilegios",
+          solution: "Instala sudo: 'pkg install sudo' y añade tu usuario al grupo wheel",
+        },
+        {
+          mistake: "No activar SSH en la instalación y quedarse sin acceso remoto",
+          solution: "Edita /etc/rc.conf y añade 'sshd_enable=YES', luego 'service sshd start'",
+        },
+      ],
+    },
   },
   {
     id: "proxmox",
@@ -186,6 +234,47 @@ export const systems: System[] = [
     officialUrl: "https://www.proxmox.com",
     logoEmoji: "🖥️",
     tags: ["KVM", "LXC", "Virtualización", "Debian", "Hipervisor"],
+    gettingStarted: {
+      quickStart: [
+        "Instala Proxmox VE desde ISO en el PC",
+        "Accede a https://IP:8006 desde otro PC (usuario: root)",
+        "Crea una máquina virtual: Datacenter > Create VM",
+        "Carga una ISO (Debian, Ubuntu, etc.) en el almacenamiento",
+        "Arranca la VM y completa la instalación del SO invitado",
+        "Configura red y acceso remoto en la VM",
+      ],
+      firstTasks: [
+        {
+          title: "Crear tu primera máquina virtual",
+          description: "Crea una VM pequeña con Debian para practicar. Asigna 2 GB RAM y 20 GB disco.",
+          time: "15 min",
+        },
+        {
+          title: "Hacer un snapshot",
+          description: "Crea un punto de restauración: VM > Snapshots > Create. Útil para experimentar sin riesgo.",
+          time: "5 min",
+        },
+        {
+          title: "Crear un contenedor LXC",
+          description: "Prueba un contenedor (más ligero que VM): Datacenter > Create CT. Elige una imagen de Ubuntu.",
+          time: "10 min",
+        },
+      ],
+      commonMistakes: [
+        {
+          mistake: "No habilitar VT-x/AMD-V en BIOS y que la virtualización no funcione",
+          solution: "Reinicia el PC, entra en BIOS (Del/F2/F12) y busca 'Virtualization' o 'VT-x'. Habilítalo.",
+        },
+        {
+          mistake: "Asignar demasiada RAM a VMs y que el host se quede sin memoria",
+          solution: "Monitoriza el uso en Proxmox > Nodes. Deja siempre 2-4 GB para el host.",
+        },
+        {
+          mistake: "Perder acceso web porque olvidó la contraseña de root",
+          solution: "Accede por consola física o SSH con root y ejecuta 'passwd' para cambiarla.",
+        },
+      ],
+    },
   },
   {
     id: "truenas",
@@ -266,6 +355,48 @@ export const systems: System[] = [
     officialUrl: "https://www.truenas.com",
     logoEmoji: "💾",
     tags: ["NAS", "ZFS", "FreeBSD", "SMB", "Almacenamiento", "Plex"],
+    gettingStarted: {
+      quickStart: [
+        "Instala TrueNAS CORE en USB/SSD separado de los datos",
+        "Accede a http://IP desde otro PC (usuario: admin, contraseña: admin)",
+        "Conecta los discos de datos al PC (mínimo 3 para RAIDZ1)",
+        "Crea un pool ZFS: Storage > Create Pool",
+        "Crea datasets para compartir: Storage > Datasets > Create Dataset",
+        "Activa SMB: Services > SMB > Enable",
+        "Crea usuarios y permisos: Accounts > Users",
+      ],
+      firstTasks: [
+        {
+          title: "Crear tu primer pool ZFS",
+          description: "Crea un pool RAIDZ1 con 3 discos. Esto te protege contra fallo de 1 disco.",
+          time: "10 min",
+        },
+        {
+          title: "Compartir una carpeta por SMB",
+          description: "Crea un dataset, luego un share SMB. Accede desde un PC Windows escribiendo \\\\IP\\nombre",
+          time: "10 min",
+        },
+        {
+          title: "Programar un snapshot automático",
+          description: "Ve a Tasks > Periodic Snapshots. Programa snapshots diarios para protección contra borrados accidentales.",
+          time: "5 min",
+        },
+      ],
+      commonMistakes: [
+        {
+          mistake: "Instalar TrueNAS en los mismos discos que los datos",
+          solution: "Usa un USB o SSD separado SOLO para TrueNAS. Los otros discos son SOLO para datos.",
+        },
+        {
+          mistake: "No tener suficiente RAM y que ZFS sea lentamente",
+          solution: "Mínimo 8 GB RAM, mejor 16 GB. ZFS cachea datos en RAM para rendimiento.",
+        },
+        {
+          mistake: "Olvidar cambiar la contraseña de admin por defecto",
+          solution: "Primero que nada: Accounts > Users > admin > Edit > cambiar contraseña.",
+        },
+      ],
+    },
   },
   {
     id: "opnsense",
@@ -336,8 +467,50 @@ export const systems: System[] = [
       "Algunas funciones avanzadas requieren plugins de pago",
     ],
     officialUrl: "https://opnsense.org",
-    logoEmoji: "🔒",
+    logoEmoji: "🔐",
     tags: ["Firewall", "Router", "VPN", "FreeBSD", "IDS/IPS"],
+    gettingStarted: {
+      quickStart: [
+        "Instala OPNsense en un PC con 2+ NICs",
+        "Asigna NIC1 a WAN (conecta al módem) y NIC2 a LAN",
+        "Accede a https://192.168.1.1 desde un PC en la LAN",
+        "Usuario: admin, contraseña: opnsense (cámbiala inmediatamente)",
+        "Configura DHCP en LAN: Services > DHCP > LAN",
+        "Habilita NAT: Firewall > NAT > Outbound",
+        "Crea reglas de firewall básicas",
+      ],
+      firstTasks: [
+        {
+          title: "Cambiar contraseña de admin",
+          description: "System > Access > Users > admin. Cambia la contraseña por defecto inmediatamente por seguridad.",
+          time: "2 min",
+        },
+        {
+          title: "Configurar DHCP en LAN",
+          description: "Services > DHCP > LAN. Habilita y configura rango (ej: 192.168.1.100-200). Esto permite que PCs se conecten automáticamente.",
+          time: "5 min",
+        },
+        {
+          title: "Crear una regla de firewall",
+          description: "Firewall > Rules > LAN. Crea una regla que permita todo tráfico desde LAN a WAN (NAT). Esto es lo básico.",
+          time: "10 min",
+        },
+      ],
+      commonMistakes: [
+        {
+          mistake: "No asignar correctamente WAN y LAN en el primer arranque",
+          solution: "Si te equivocas, accede por consola (conecta teclado/monitor) y ejecuta 'opnsense-shell' para reasignar interfaces.",
+        },
+        {
+          mistake: "Bloquear todo tráfico accidentalmente sin crear reglas NAT",
+          solution: "Siempre crea una regla de salida (Outbound NAT) que permita LAN > WAN. Si no, no hay internet.",
+        },
+        {
+          mistake: "Olvidar que OPNsense es un firewall, no un router WiFi",
+          solution: "Conecta un router WiFi a la interfaz LAN de OPNsense. OPNsense solo maneja cables/Ethernet.",
+        },
+      ],
+    },
   },
   {
     id: "mikrotik",
@@ -411,6 +584,48 @@ export const systems: System[] = [
     officialUrl: "https://mikrotik.com/software",
     logoEmoji: "🌐",
     tags: ["Router", "Switch", "BGP", "OSPF", "VLANs", "QoS"],
+    gettingStarted: {
+      quickStart: [
+        "Descarga RouterOS x86 desde mikrotik.com",
+        "Instala en el PC (modo texto, muy rápido)",
+        "Descarga Winbox (gestor gráfico) en otro PC",
+        "Conecta por Winbox a la IP del router (usuario: admin, sin contraseña)",
+        "Cambia la contraseña inmediatamente",
+        "Configura interfaces de red (WAN/LAN)",
+        "Habilita DHCP en LAN",
+      ],
+      firstTasks: [
+        {
+          title: "Conectar por Winbox",
+          description: "Descarga Winbox desde mikrotik.com. Abre el .exe, introduce la IP del router y conecta. Es más fácil que la web.",
+          time: "5 min",
+        },
+        {
+          title: "Configurar IP Address",
+          description: "Winbox > IP > Addresses. Añade direcciones IP a las interfaces (ej: 192.168.1.1/24 en ether2 para LAN).",
+          time: "5 min",
+        },
+        {
+          title: "Habilitar DHCP Server",
+          description: "Winbox > IP > DHCP Server. Crea un servidor DHCP en la interfaz LAN para que los PCs obtengan IP automáticamente.",
+          time: "10 min",
+        },
+      ],
+      commonMistakes: [
+        {
+          mistake: "Instalar RouterOS en un PC sin dejar espacio para el SO host",
+          solution: "RouterOS es el SO completo. No instales nada más. Si quieres dual-boot, particiona bien el disco.",
+        },
+        {
+          mistake: "No cambiar la contraseña de admin (viene sin contraseña)",
+          solution: "Primero que nada en Winbox: System > Users > admin > Set Password. Usa una contraseña fuerte.",
+        },
+        {
+          mistake: "Confundir interfaces de red (ether1, ether2, etc.) y no saber cuál es WAN/LAN",
+          solution: "Etiqueta los cables. Usa Winbox > Interfaces para ver qué interfaz está conectada a dónde.",
+        },
+      ],
+    },
   },
   {
     id: "wordpress",
@@ -487,6 +702,48 @@ export const systems: System[] = [
     officialUrl: "https://wordpress.org",
     logoEmoji: "📝",
     tags: ["CMS", "PHP", "MySQL", "Apache", "Web"],
+    gettingStarted: {
+      quickStart: [
+        "Instala un servidor web (Apache/Nginx + PHP + MySQL/MariaDB)",
+        "Descarga WordPress desde wordpress.org",
+        "Descomprime en /var/www/html (Linux) o C:\\xampp\\htdocs (Windows con XAMPP)",
+        "Crea una base de datos MySQL: 'CREATE DATABASE wordpress;'",
+        "Accede a http://localhost/wordpress en tu navegador",
+        "Sigue el asistente de instalación de WordPress",
+        "Inicia sesión en el panel de administración",
+      ],
+      firstTasks: [
+        {
+          title: "Instalar WordPress localmente con XAMPP",
+          description: "Descarga XAMPP, instala, inicia Apache + MySQL. Descarga WordPress, descomprímelo en htdocs y accede a http://localhost/wordpress. Es lo más rápido.",
+          time: "15 min",
+        },
+        {
+          title: "Crear tu primer post",
+          description: "En el panel de WordPress, ve a Posts > Añadir nuevo. Escribe un título, contenido y publica. Verás cómo aparece en la web.",
+          time: "5 min",
+        },
+        {
+          title: "Cambiar el tema",
+          description: "Appearance > Themes. Elige un tema gratuito y activálo. Verás cómo cambia el diseño del sitio sin tocar código.",
+          time: "5 min",
+        },
+      ],
+      commonMistakes: [
+        {
+          mistake: "No crear la base de datos antes de instalar WordPress",
+          solution: "Crea la BD en phpMyAdmin o por línea de comandos ANTES de ejecutar el instalador de WordPress.",
+        },
+        {
+          mistake: "Olvidar cambiar los permisos de carpetas (chmod) en Linux",
+          solution: "Ejecuta: chmod -R 755 /var/www/html/wordpress y chown -R www-data:www-data /var/www/html/wordpress",
+        },
+        {
+          mistake: "Usar la contraseña de admin por defecto",
+          solution: "En la instalación, crea una contraseña fuerte. Después puedes cambiarla en Users > Tu usuario.",
+        },
+      ],
+    },
   },
   {
     id: "xampp",
@@ -560,6 +817,48 @@ export const systems: System[] = [
     officialUrl: "https://www.apachefriends.org",
     logoEmoji: "⚙️",
     tags: ["Apache", "PHP", "MariaDB", "Desarrollo", "LAMP"],
+    gettingStarted: {
+      quickStart: [
+        "Descarga XAMPP desde apachefriends.org (Windows, Linux o macOS)",
+        "Instala XAMPP (ruta por defecto es OK)",
+        "Abre el XAMPP Control Panel",
+        "Haz clic en 'Start' para Apache y MySQL",
+        "Accede a http://localhost en tu navegador",
+        "Verás la página de bienvenida de XAMPP",
+        "Crea tu primer archivo PHP en htdocs",
+      ],
+      firstTasks: [
+        {
+          title: "Iniciar XAMPP y verificar que funciona",
+          description: "Abre XAMPP Control Panel. Inicia Apache y MySQL. Accede a http://localhost. Si ves la página de XAMPP, todo está bien.",
+          time: "3 min",
+        },
+        {
+          title: "Crear tu primer archivo PHP",
+          description: "Crea un archivo test.php en C:\\xampp\\htdocs (Windows) o /opt/lampp/htdocs (Linux) con: <?php echo 'Hola Mundo'; ?>. Accede a http://localhost/test.php",
+          time: "5 min",
+        },
+        {
+          title: "Acceder a phpMyAdmin",
+          description: "Ve a http://localhost/phpmyadmin. Crea una nueva base de datos (ej: 'miapp'). Esto te permite gestionar MySQL visualmente sin comandos.",
+          time: "5 min",
+        },
+      ],
+      commonMistakes: [
+        {
+          mistake: "Instalar XAMPP en una carpeta protegida (Archivos de Programa en Windows)",
+          solution: "Instala en C:\\xampp o una carpeta sin restricciones de permisos. Evita Program Files.",
+        },
+        {
+          mistake: "Olvidar iniciar Apache y MySQL en el Control Panel",
+          solution: "Abre XAMPP Control Panel y haz clic en 'Start' para ambos servicios. Deben estar en verde.",
+        },
+        {
+          mistake: "Poner archivos en la carpeta equivocada",
+          solution: "Los archivos web van en htdocs (Windows: C:\\xampp\\htdocs, Linux: /opt/lampp/htdocs). No en la carpeta de instalación.",
+        },
+      ],
+    },
   },
 ];
 
