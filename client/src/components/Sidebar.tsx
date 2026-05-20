@@ -35,8 +35,9 @@ export default function Sidebar({ activeId, onSelect, onCollapse }: SidebarProps
     <aside
       className={`fixed left-0 top-0 h-screen z-40 flex flex-col transition-all duration-300 ease-out ${
         collapsed ? "w-16" : "w-64"
-      }`}
+      } md:w-64 md:relative md:z-auto`}
       style={{
+        width: collapsed ? '64px' : '256px',
         background: "#303f9f",
         borderRight: "1px solid #bdbdbd",
       }}

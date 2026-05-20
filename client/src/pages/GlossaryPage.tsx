@@ -116,13 +116,13 @@ export default function GlossaryPage() {
               color: "#212121",
             }}
           >
-            <span style={{ color: "#ffc107" }}>&gt;</span> Glosario técnico
+            <span style={{ color: "#ff9800" }}>&gt;</span> Glosario técnico
           </h1>
           <p
             className="text-sm"
             style={{
               fontFamily: "Verdana, Geneva, sans-serif",
-              color: "#757575",
+              color: "#424242",
             }}
           >
             Términos clave del módulo de Montaje y Mantenimiento de Equipos Informáticos.
@@ -163,7 +163,7 @@ export default function GlossaryPage() {
                         className="text-sm leading-relaxed"
                         style={{
                           fontFamily: "Verdana, Geneva, sans-serif",
-                          color: "#757575",
+                          color: "#424242",
                         }}
                       >
                         {term.definition}

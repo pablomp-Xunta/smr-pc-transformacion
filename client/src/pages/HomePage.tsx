@@ -39,7 +39,7 @@ export default function HomePage({ onSelect }: HomePageProps) {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(90deg, #ffffff 40%, oklch(0.11 0.008 240 / 0.4) 70%, transparent 100%)",
+              "linear-gradient(90deg, #ffffff 40%, rgba(63, 81, 181, 0.1) 70%, transparent 100%)",
           }}
         />
 
@@ -50,9 +50,9 @@ export default function HomePage({ onSelect }: HomePageProps) {
               <span
                 className="px-3 py-1 rounded text-xs font-mono uppercase tracking-widest"
                 style={{
-                  background: "oklch(0.75 0.18 155 / 0.15)",
-                  color: "#ffc107",
-                  border: "1px solid oklch(0.75 0.18 155 / 0.3)",
+                  background: "#fff3e0",
+                  color: "#ff9800",
+                  border: "1px solid #ffb74d",
                 }}
               >
                 1º CFGM · SMR
@@ -60,9 +60,9 @@ export default function HomePage({ onSelect }: HomePageProps) {
               <span
                 className="px-3 py-1 rounded text-xs font-mono uppercase tracking-widest"
                 style={{
-                  background: "oklch(0.68 0.15 240 / 0.15)",
+                  background: "#e8eaf6",
                   color: "#3f51b5",
-                  border: "1px solid oklch(0.68 0.15 240 / 0.3)",
+                  border: "1px solid #c5cae9",
                 }}
               >
                 Montaje y Mantenimiento
@@ -77,7 +77,7 @@ export default function HomePage({ onSelect }: HomePageProps) {
               }}
             >
               Tu PC,{" "}
-              <span style={{ color: "#ffc107" }}>Mil</span>{" "}
+              <span style={{ color: "#ff9800" }}>Mil</span>{" "}
               Posibilidades
             </h1>
 
@@ -104,14 +104,14 @@ export default function HomePage({ onSelect }: HomePageProps) {
                     className="text-2xl font-bold"
                     style={{
                       fontFamily: "Verdana, Geneva, sans-serif",
-                      color: "#ffc107",
+                      color: "#ff9800",
                     }}
                   >
                     {stat.value}
                   </span>
                   <span
                     className="text-xs uppercase tracking-wider"
-                    style={{ color: "#757575" }}
+                    style={{ color: "#424242" }}
                   >
                     {stat.label}
                   </span>
@@ -135,7 +135,7 @@ export default function HomePage({ onSelect }: HomePageProps) {
           <div
             className="rounded-lg p-6 lg:p-8"
             style={{
-              background: "oklch(0.16 0.008 240 / 0.95)",
+              background: "#f5f5f5",
               border: "1px solid #bdbdbd",
             }}
           >
@@ -146,13 +146,13 @@ export default function HomePage({ onSelect }: HomePageProps) {
                 color: "#212121",
               }}
             >
-              <span style={{ color: "#ffc107" }}>//</span> ¿Qué aprenderás?
+              <span style={{ color: "#ff9800" }}>//</span> ¿Qué aprenderás?
             </h2>
             <p
               className="text-base leading-relaxed mb-6"
               style={{
                 fontFamily: "Verdana, Geneva, sans-serif",
-                color: "#757575",
+                color: "#424242",
               }}
             >
               En este módulo exploraremos cómo un PC estándar puede convertirse en una herramienta especializada instalando sistemas operativos y software diseñados para tareas concretas. Más allá de Windows y las distribuciones Linux convencionales, existe un ecosistema rico de soluciones de código abierto que transforman el hardware en servidores, routers, sistemas de almacenamiento o entornos de virtualización.
@@ -179,8 +179,8 @@ export default function HomePage({ onSelect }: HomePageProps) {
                   key={item.title}
                   className="p-4 rounded"
                   style={{
-                    background: "#303f9f",
-                    border: "1px solid oklch(0.22 0.01 240)",
+                    background: "#3f51b5",
+                    border: "1px solid #3f51b5",
                   }}
                 >
                   <div className="text-2xl mb-2">{item.icon}</div>
@@ -188,7 +188,7 @@ export default function HomePage({ onSelect }: HomePageProps) {
                     className="text-sm font-semibold mb-1"
                     style={{
                       fontFamily: "Verdana, Geneva, sans-serif",
-                      color: "#212121",
+                      color: "#ffffff",
                     }}
                   >
                     {item.title}
@@ -197,7 +197,7 @@ export default function HomePage({ onSelect }: HomePageProps) {
                     className="text-sm"
                     style={{
                       fontFamily: "Verdana, Geneva, sans-serif",
-                      color: "#757575",
+                      color: "#e8eaf6",
                     }}
                   >
                     {item.text}
@@ -220,13 +220,13 @@ export default function HomePage({ onSelect }: HomePageProps) {
                 color: "#212121",
               }}
             >
-              <span style={{ color: "#ffc107" }}>&gt;</span> Sistemas disponibles
+              <span style={{ color: "#ff9800" }}>&gt;</span> Sistemas disponibles
             </h2>
             <p
               className="text-sm"
               style={{
                 fontFamily: "Verdana, Geneva, sans-serif",
-                color: "#757575",
+                color: "#424242",
               }}
             >
               Selecciona un sistema para ver la guía completa de instalación y configuración.
@@ -259,7 +259,7 @@ export default function HomePage({ onSelect }: HomePageProps) {
                         </h3>
                         <span
                           className="text-xs"
-                          style={{ color: "#757575" }}
+                          style={{ color: "#424242" }}
                         >
                           {sys.categoryLabel}
                         </span>
@@ -275,7 +275,7 @@ export default function HomePage({ onSelect }: HomePageProps) {
                     className="text-sm leading-relaxed mb-4"
                     style={{
                       fontFamily: "Verdana, Geneva, sans-serif",
-                      color: "#757575",
+                      color: "#424242",
                     }}
                   >
                     {sys.description.slice(0, 120)}...
@@ -289,7 +289,7 @@ export default function HomePage({ onSelect }: HomePageProps) {
                         className="text-xs px-2 py-0.5 rounded font-mono"
                         style={{
                           background: "#f5f5f5",
-                          color: "#757575",
+                          color: "#424242",
                           border: "1px solid #bdbdbd",
                         }}
                       >
@@ -301,7 +301,7 @@ export default function HomePage({ onSelect }: HomePageProps) {
                   {/* CTA */}
                   <div
                     className="flex items-center gap-1.5 text-xs font-mono"
-                    style={{ color: "#ffc107" }}
+                    style={{ color: "#ff9800" }}
                   >
                     <span>Ver guía completa</span>
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
@@ -334,7 +334,7 @@ export default function HomePage({ onSelect }: HomePageProps) {
               color: "#212121",
             }}
           >
-            <span style={{ color: "#ffc107" }}>⚡</span> Actividades prácticas
+            <span style={{ color: "#ff9800" }}>⚡</span> Actividades prácticas
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
@@ -371,17 +371,17 @@ export default function HomePage({ onSelect }: HomePageProps) {
                 key={act.num}
                 className="p-5 rounded-lg"
                 style={{
-                  background: "#f5f5f5",
-                  border: "1px solid oklch(0.24 0.01 240)",
+                  background: "#ffffff",
+                  border: "1px solid #bdbdbd",
                 }}
               >
                 <div className="flex items-start justify-between gap-3 mb-3">
                   <span
                     className="text-xs font-mono px-2 py-1 rounded"
                     style={{
-                      background: "oklch(0.75 0.18 155 / 0.12)",
-                      color: "#ffc107",
-                      border: "1px solid oklch(0.75 0.18 155 / 0.25)",
+                      background: "#fff3e0",
+                      color: "#ff9800",
+                      border: "1px solid #ffb74d",
                     }}
                   >
                     {act.num}
@@ -400,7 +400,7 @@ export default function HomePage({ onSelect }: HomePageProps) {
                     </span>
                     <span
                       className="text-xs font-mono"
-                      style={{ color: "#757575" }}
+                      style={{ color: "#424242" }}
                     >
                       ⏱ {act.time}
                     </span>
@@ -419,7 +419,7 @@ export default function HomePage({ onSelect }: HomePageProps) {
                   className="text-sm leading-relaxed"
                   style={{
                     fontFamily: "Verdana, Geneva, sans-serif",
-                    color: "#757575",
+                    color: "#424242",
                   }}
                 >
                   {act.desc}
@@ -457,7 +457,7 @@ export default function HomePage({ onSelect }: HomePageProps) {
                       key={h}
                       className="text-left py-3 px-4 text-xs uppercase tracking-wider"
                       style={{
-                        color: "#757575",
+                        color: "#424242",
                         fontFamily: "Verdana, Geneva, sans-serif",
                       }}
                     >
@@ -479,8 +479,8 @@ export default function HomePage({ onSelect }: HomePageProps) {
                   <tr
                     key={row.name}
                     style={{
-                      borderBottom: "1px solid #f5f5f5",
-                      background: i % 2 === 0 ? "transparent" : "oklch(0.15 0.008 240 / 0.5)",
+                      borderBottom: "1px solid #bdbdbd",
+                      background: i % 2 === 0 ? "#ffffff" : "#f5f5f5",
                     }}
                   >
                     <td
@@ -493,7 +493,7 @@ export default function HomePage({ onSelect }: HomePageProps) {
                     >
                       {row.name}
                     </td>
-                    <td className="py-3 px-4" style={{ color: "#757575" }}>
+                    <td className="py-3 px-4" style={{ color: "#424242" }}>
                       {row.type}
                     </td>
                     <td className="py-3 px-4">
@@ -511,11 +511,11 @@ export default function HomePage({ onSelect }: HomePageProps) {
                     </td>
                     <td
                       className="py-3 px-4 font-mono text-xs"
-                      style={{ color: "#757575" }}
+                      style={{ color: "#424242" }}
                     >
                       {row.ram}
                     </td>
-                    <td className="py-3 px-4" style={{ color: row.license === "Comercial" ? "#d32f2f" : "#ffc107", fontSize: "0.8rem" }}>
+                    <td className="py-3 px-4" style={{ color: row.license === "Comercial" ? "#d32f2f" : "#ff9800", fontSize: "0.8rem" }}>
                       {row.license}
                     </td>
                   </tr>
@@ -529,8 +529,8 @@ export default function HomePage({ onSelect }: HomePageProps) {
       <footer
         className="py-8"
         style={{
-          background: "oklch(0.10 0.008 240)",
-          borderTop: "1px solid oklch(0.20 0.01 240)",
+          background: "#f5f5f5",
+          borderTop: "1px solid #bdbdbd",
         }}
       >
         <div className="container">
@@ -538,22 +538,22 @@ export default function HomePage({ onSelect }: HomePageProps) {
             <div>
               <p
                 className="text-sm font-mono"
-                style={{ color: "#757575" }}
+                style={{ color: "#424242" }}
               >
-                <span style={{ color: "#ffc107" }}>SMR 1º CFGM</span> · Módulo: Montaje y Mantenimiento de Equipos Informáticos
+                <span style={{ color: "#ff9800" }}>SMR 1º CFGM</span> · Módulo: Montaje y Mantenimiento de Equipos Informáticos
               </p>
               <p
                 className="text-xs mt-1"
-                style={{ color: "#757575", fontFamily: "Verdana, Geneva, sans-serif" }}
+                style={{ color: "#424242", fontFamily: "Verdana, Geneva, sans-serif" }}
               >
                 Sistemas Microinformáticos y Redes · Ciclo Formativo de Grado Medio
               </p>
             </div>
             <p
               className="text-xs font-mono"
-              style={{ color: "#757575" }}
+              style={{ color: "#424242" }}
             >
-              Contenido educativo de libre uso · 2024/25
+              Contenido educativo de libre uso · 2025/26
             </p>
           </div>
         </div>

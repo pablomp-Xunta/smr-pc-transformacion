@@ -78,7 +78,7 @@ const resources = [
   },
   {
     category: "MikroTik RouterOS",
-    color: "#ffc107",
+    color: "#ff9800",
     items: [
       {
         title: "MikroTik Wiki",
@@ -132,7 +132,7 @@ const resources = [
   },
   {
     category: "Herramientas generales",
-    color: "#ffc107",
+    color: "#ff9800",
     items: [
       {
         title: "Rufus — Crear USB bootable",
@@ -168,13 +168,13 @@ export default function ResourcesPage() {
               color: "#212121",
             }}
           >
-            <span style={{ color: "#ffc107" }}>&gt;</span> Recursos y enlaces
+            <span style={{ color: "#ff9800" }}>&gt;</span> Recursos y enlaces
           </h1>
           <p
             className="text-sm"
             style={{
               fontFamily: "Verdana, Geneva, sans-serif",
-              color: "#757575",
+              color: "#424242",
             }}
           >
             Documentación oficial, comunidades y herramientas para cada sistema.
@@ -233,7 +233,7 @@ export default function ResourcesPage() {
                         className="text-xs px-2 py-0.5 rounded font-mono flex-shrink-0"
                         style={{
                           background: "#f5f5f5",
-                          color: "#757575",
+                          color: "#424242",
                           border: "1px solid #bdbdbd",
                         }}
                       >
@@ -244,7 +244,7 @@ export default function ResourcesPage() {
                       className="text-xs leading-relaxed"
                       style={{
                         fontFamily: "Verdana, Geneva, sans-serif",
-                        color: "#757575",
+                        color: "#424242",
                       }}
                     >
                       {item.description}
