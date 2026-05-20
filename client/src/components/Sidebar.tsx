@@ -203,7 +203,7 @@ export default function Sidebar({ activeId, onSelect, onCollapse }: SidebarProps
           style={{ borderTop: "1px solid #bdbdbd" }}
         >
           <p className="text-xs" style={{ color: "#c5cae9", fontFamily: "Verdana, Geneva, sans-serif" }}>
-            v1.0 · 2024/25
+            v1.0 · 2025/26
           </p>
           <p className="text-xs mt-0.5" style={{ color: "#c5cae9", fontSize: "0.65rem", fontFamily: "Verdana, Geneva, sans-serif" }}>
             Módulo: Montaje y Mantenimiento
