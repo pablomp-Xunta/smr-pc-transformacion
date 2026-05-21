@@ -860,6 +860,120 @@ export const systems: System[] = [
       ],
     },
   },
+  {
+    id: "homeassistant",
+    name: "Home Assistant",
+    subtitle: "Automatización del hogar",
+    category: "web",
+    categoryLabel: "Automatización",
+    difficulty: "medio",
+    difficultyLabel: "Intermedio",
+    color: "#0066cc",
+    accentClass: "badge-medium",
+    logoEmoji: "🏠",
+    description: "Home Assistant es una plataforma de automatización del hogar de código abierto que permite controlar y automatizar dispositivos IoT desde una interfaz centralizada.",
+    longDescription: "Home Assistant es una plataforma de automatización del hogar basada en Python que se ejecuta en cualquier PC o Raspberry Pi. Permite integrar cientos de dispositivos inteligentes (luces, termostatos, cámaras, cerraduras, etc.) de diferentes fabricantes en una única interfaz de control. Ideal para crear un ecosistema domótico sin depender de servicios en la nube propietarios.",
+    useCases: [
+      "Control centralizado de dispositivos IoT del hogar",
+      "Automatización de escenas (ej: 'Buenas noches' apaga luces y cierra persianas)",
+      "Monitoreo de sensores de temperatura, humedad, movimiento",
+      "Integración con asistentes de voz (Alexa, Google Home)",
+      "Historial y análisis de consumo energético",
+    ],
+    hardware: {
+      cpu: "Intel/AMD x86 o ARM (Raspberry Pi 3+)",
+      ram: "2 GB mínimo (4 GB recomendado)",
+      storage: "10 GB SSD (para base de datos y logs)",
+      network: "Conexión Ethernet o WiFi estable",
+      extra: "Opcional: Zigbee/Z-Wave hub para dispositivos inalámbricos",
+    },
+    steps: [
+      {
+        title: "Descargar Home Assistant",
+        description: "Descarga la imagen de Home Assistant OS desde https://www.home-assistant.io/installation/",
+      },
+      {
+        title: "Preparar el medio de instalación",
+        description: "Si instalas en PC: usa Balena Etcher para escribir la imagen en USB. Si es en Raspberry Pi: escribe en tarjeta microSD.",
+      },
+      {
+        title: "Iniciar desde el medio",
+        description: "Arranca el PC desde USB o la Raspberry Pi desde la microSD. Home Assistant OS se instalará automáticamente.",
+      },
+      {
+        title: "Configuración inicial",
+        description: "Accede a http://homeassistant.local:8123 desde tu navegador. Crea una cuenta de usuario y configura la ubicación.",
+        command: "# Espera 5-10 minutos a que Home Assistant se inicie completamente",
+      },
+      {
+        title: "Añadir integraciones",
+        description: "Ve a Configuración > Dispositivos e integraciones. Busca y añade tus dispositivos inteligentes (Philips Hue, Tasmota, MQTT, etc.).",
+      },
+      {
+        title: "Crear automatizaciones",
+        description: "En Automatizaciones, crea reglas: 'Si sensor movimiento detecta movimiento, enciende luz'. Guarda y prueba.",
+      },
+    ],
+    pros: [
+      "Completamente de código abierto y sin dependencia de servicios en la nube",
+      "Soporta cientos de integraciones de dispositivos IoT",
+      "Interfaz web moderna e intuitiva",
+      "Automatizaciones potentes sin programación",
+      "Bajo consumo de recursos (funciona en Raspberry Pi)",
+      "Comunidad activa con miles de complementos",
+    ],
+    cons: [
+      "Curva de aprendizaje inicial para automatizaciones complejas",
+      "Requiere conocimientos básicos de redes para acceso remoto seguro",
+      "Algunos dispositivos requieren adaptadores específicos (Zigbee, Z-Wave)",
+      "Mantenimiento de actualizaciones y complementos",
+      "Necesita conexión estable a Internet para algunas integraciones",
+    ],
+    officialUrl: "https://www.home-assistant.io",
+    tags: ["IoT", "Automatización", "Domótica", "Python", "Open Source"],
+    gettingStarted: {
+      quickStart: [
+        "Descarga Home Assistant OS desde home-assistant.io",
+        "Escribe la imagen en USB (Balena Etcher) o microSD",
+        "Arranca el PC o Raspberry Pi desde el medio",
+        "Espera 5-10 minutos a que se inicie",
+        "Accede a http://homeassistant.local:8123",
+        "Crea una cuenta de usuario",
+        "Configura tu ubicación (ciudad, zona horaria)",
+      ],
+      firstTasks: [
+        {
+          title: "Acceder a Home Assistant por primera vez",
+          description: "Abre http://homeassistant.local:8123 en tu navegador. Verás el panel de control. Crea una cuenta y configura la ubicación. Esto toma 5 minutos.",
+          time: "5 min",
+        },
+        {
+          title: "Añadir tu primer dispositivo",
+          description: "Ve a Configuración > Dispositivos e integraciones. Busca 'MQTT' o 'Tasmota'. Conecta un dispositivo inteligente (bombilla, sensor, etc.).",
+          time: "10 min",
+        },
+        {
+          title: "Crear tu primera automatización",
+          description: "Ve a Automatizaciones. Crea una regla simple: 'Si es después de las 22:00, apaga todas las luces'. Guarda y prueba.",
+          time: "10 min",
+        },
+      ],
+      commonMistakes: [
+        {
+          mistake: "No esperar a que Home Assistant se inicie completamente",
+          solution: "Espera 5-10 minutos después de arrancar. Verás el logo de Home Assistant en la pantalla. Accede a http://homeassistant.local:8123 solo cuando esté listo.",
+        },
+        {
+          mistake: "Intentar acceder con IP en lugar de homeassistant.local",
+          solution: "Usa siempre http://homeassistant.local:8123. Si no funciona, busca la IP en tu router y usa http://[IP]:8123",
+        },
+        {
+          mistake: "Añadir dispositivos sin configurar primero la integración",
+          solution: "Primero añade la integración (MQTT, Tasmota, etc.) en Dispositivos e integraciones. Luego añade los dispositivos individuales.",
+        },
+      ],
+    },
+  },
 ];
 
 export const categoryColors: Record<string, string> = {
@@ -870,6 +984,7 @@ export const categoryColors: Record<string, string> = {
   switch: "text-green-400",
   web: "text-sky-400",
   devserver: "text-amber-400",
+  homeassistant: "text-blue-500",
 };
 
 export const difficultyConfig = {
