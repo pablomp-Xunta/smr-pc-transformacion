@@ -28,7 +28,7 @@ export interface System {
   id: string;
   name: string;
   subtitle: string;
-  category: "os" | "virtualization" | "nas" | "router" | "switch" | "web" | "devserver";
+  category: "os" | "virtualization" | "nas" | "router" | "switch" | "web" | "devserver" | "emulation";
   categoryLabel: string;
   difficulty: "facil" | "medio" | "avanzado";
   difficultyLabel: string;
@@ -974,6 +974,119 @@ export const systems: System[] = [
       ],
     },
   },
+  {
+    id: "emulation",
+    name: "Emulador de Juegos",
+    subtitle: "Juegos clásicos y consolas",
+    category: "emulation",
+    categoryLabel: "Emulación",
+    difficulty: "facil",
+    difficultyLabel: "Fácil",
+    color: "#e91e63",
+    accentClass: "badge-easy",
+    logoEmoji: "🎮",
+    description: "Sistema de emulación de juegos clásicos basado en RetroArch y Emulation Station. Permite jugar juegos de PS2, Nintendo 64, Arcade, SNES, Mega Drive y muchas más consolas en un PC moderno.",
+    longDescription: "RetroArch es un emulador multiplataforma que integra cientos de núcleos de emulación (PCSX2 para PS2, Mupen64Plus para N64, MAME para Arcade, etc.). Emulation Station proporciona una interfaz visual tipo arcade para gestionar y lanzar juegos. Ideal para crear una máquina recreativa doméstica o de laboratorio educativo.",
+    useCases: [
+      "Crear una máquina recreativa doméstica con juegos clásicos",
+      "Emular consolas antiguas (PS2, N64, SNES, Mega Drive, Arcade)",
+      "Jugar juegos retro con controles modernos (gamepad USB)",
+      "Proyecto educativo sobre arquitectura de consolas y emulación",
+      "Preservación digital de juegos clásicos",
+    ],
+    hardware: {
+      cpu: "Intel/AMD x86 de 4+ núcleos (Ryzen 5 / i5 recomendado)",
+      ram: "4 GB mínimo (8 GB para PS2 con buen rendimiento)",
+      storage: "50-100 GB SSD (para ROMs de juegos)",
+      network: "Opcional (para descargas de ROMs y actualizaciones)",
+      extra: "Gamepad USB o inalámbrico (Xbox 360, PS4, etc.)",
+    },
+    steps: [
+      {
+        title: "Descargar RetroArch",
+        description: "Descarga RetroArch desde https://www.retroarch.com/ para tu sistema operativo (Windows, Linux, macOS).",
+      },
+      {
+        title: "Instalar RetroArch",
+        description: "Ejecuta el instalador y sigue los pasos. RetroArch se instalará con los núcleos básicos incluidos.",
+      },
+      {
+        title: "Descargar núcleos de emulación",
+        description: "En RetroArch, ve a Main Menu > Online Updater > Core Downloader. Descarga los núcleos que necesites (PCSX2, Mupen64Plus, MAME, Snes9x, etc.).",
+      },
+      {
+        title: "Organizar ROMs",
+        description: "Crea carpetas por consola (PS2, N64, SNES, etc.) en una carpeta 'Roms' en tu PC. Coloca los archivos de juegos en las carpetas correspondientes.",
+      },
+      {
+        title: "Configurar rutas de contenido",
+        description: "En RetroArch, ve a Settings > File Browser > Browse for Images. Apunta a la carpeta de ROMs para cada consola.",
+      },
+      {
+        title: "Configurar controles",
+        description: "Conecta tu gamepad USB. En Settings > Input > Input User 1 Binds, mapea los botones del gamepad a los controles del emulador.",
+      },
+    ],
+    pros: [
+      "Emulación de cientos de juegos de múltiples consolas",
+      "Interfaz moderna e intuitiva (Emulation Station)",
+      "Soporte para gamepads USB y inalámbricos",
+      "Escalado y filtros gráficos para mejorar juegos antiguos",
+      "Completamente gratuito y de código abierto",
+      "Bajo consumo de recursos para juegos clásicos",
+    ],
+    cons: [
+      "PS2 requiere CPU potente para buen rendimiento (30-40 FPS)",
+      "Necesita ROMs legales (obtener juegos originales es complejo)",
+      "Algunos juegos tienen glitches de emulación",
+      "Configuración inicial puede ser técnica para principiantes",
+      "Requiere gamepad para mejor experiencia (teclado no es ideal)",
+    ],
+    officialUrl: "https://www.retroarch.com",
+    tags: ["Emulación", "Juegos", "Retro", "PS2", "N64", "Arcade"],
+    gettingStarted: {
+      quickStart: [
+        "Descarga RetroArch desde retroarch.com",
+        "Instala RetroArch en tu PC",
+        "Abre RetroArch y ve a Online Updater > Core Downloader",
+        "Descarga el núcleo SNES9x (para empezar con SNES)",
+        "Crea una carpeta 'Roms/SNES' en tu PC",
+        "Coloca un ROM de SNES en esa carpeta",
+        "En RetroArch, abre el archivo y juega",
+      ],
+      firstTasks: [
+        {
+          title: "Descargar e instalar RetroArch",
+          description: "Descarga RetroArch desde retroarch.com. Instala en tu PC. Abre la aplicación y verás el menú principal. Esto toma 5 minutos.",
+          time: "5 min",
+        },
+        {
+          title: "Descargar tu primer núcleo de emulación",
+          description: "En RetroArch, ve a Main Menu > Online Updater > Core Downloader. Busca 'SNES9x' y descárgalo. Verás una barra de progreso.",
+          time: "3 min",
+        },
+        {
+          title: "Cargar tu primer juego",
+          description: "Ve a Main Menu > Load Content. Navega a una ROM de SNES. RetroArch la abrirá automáticamente con SNES9x. ¡A jugar!",
+          time: "5 min",
+        },
+      ],
+      commonMistakes: [
+        {
+          mistake: "No descargar los núcleos de emulación",
+          solution: "RetroArch sin núcleos no puede emular nada. Ve a Online Updater > Core Downloader y descarga los núcleos que necesites (SNES9x, PCSX2, Mupen64Plus, etc.).",
+        },
+        {
+          mistake: "Poner ROMs en la carpeta equivocada",
+          solution: "Crea una estructura clara: Roms/SNES/, Roms/PS2/, Roms/N64/, etc. RetroArch necesita saber dónde buscar los juegos.",
+        },
+        {
+          mistake: "No configurar los controles del gamepad",
+          solution: "Conecta tu gamepad USB. Ve a Settings > Input > Input User 1 Binds. Mapea cada botón del gamepad a los controles del emulador.",
+        },
+      ],
+    },
+  },
 ];
 
 export const categoryColors: Record<string, string> = {
@@ -985,6 +1098,7 @@ export const categoryColors: Record<string, string> = {
   web: "text-sky-400",
   devserver: "text-amber-400",
   homeassistant: "text-blue-500",
+  emulation: "text-pink-500",
 };
 
 export const difficultyConfig = {
