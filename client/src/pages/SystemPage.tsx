@@ -12,7 +12,7 @@ interface SystemPageProps {
 }
 
 export default function SystemPage({ system, onBack }: SystemPageProps) {
-  const [activeTab, setActiveTab] = useState<"overview" | "steps" | "hardware" | "pros" | "plex" | "getting-started">(
+  const [activeTab, setActiveTab] = useState<"overview" | "steps" | "hardware" | "pros" | "plex" | "rpcs3" | "getting-started">(
     "overview"
   );
   const diff = difficultyConfig[system.difficulty];
@@ -24,6 +24,7 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
     { id: "hardware", label: "Hardware" },
     { id: "pros", label: "Ventajas/Desventajas" },
     ...(system.id === "truenas" ? [{ id: "plex", label: "Plex Multimedia" }] : []),
+    ...(system.id === "emulation" ? [{ id: "rpcs3", label: "RPCS3 - PS3" }] : []),
   ] as const;
 
   return (
@@ -931,6 +932,199 @@ export default function SystemPage({ system, onBack }: SystemPageProps) {
                     }}
                   >
                     Para que Plex transcodifique videos en tiempo real (necesario si tus clientes tienen conexión lenta), necesitas una CPU potente. Intel Quick Sync o AMD VCE aceleran significativamente la transcodificación. Mínimo 2-4 GB RAM adicionales para Plex. Sin transcodificación, Plex solo necesita CPU modesta.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* RPCS3 */}
+        {activeTab === "rpcs3" && system.id === "emulation" && (
+          <div className="max-w-3xl animate-fade-in-up">
+            <h2
+              className="text-lg font-bold mb-6"
+              style={{
+                fontFamily: "Verdana, Geneva, sans-serif",
+                color: "#212121",
+              }}
+            >
+              <span style={{ color: "#ff9800" }}>//</span> RPCS3 - Emulador de PlayStation 3
+            </h2>
+
+            <p
+              className="text-base leading-relaxed mb-6"
+              style={{
+                fontFamily: "Verdana, Geneva, sans-serif",
+                color: "#212121",
+                lineHeight: "1.8",
+              }}
+            >
+              RPCS3 es un emulador de código abierto que permite jugar juegos de PlayStation 3 en un PC moderno. A diferencia de RetroArch (que emula consolas clásicas), RPCS3 se especializa en emulación de PS3 con excelente compatibilidad y rendimiento.
+            </p>
+
+            {/* Installation section */}
+            <h3
+              className="text-base font-bold mb-4"
+              style={{
+                fontFamily: "Verdana, Geneva, sans-serif",
+                color: "#212121",
+              }}
+            >
+              <span style={{ color: "#3f51b5" }}>#</span> Instalación de RPCS3
+            </h3>
+            <div
+              className="p-5 rounded-lg mb-6"
+              style={{
+                background: "#f5f5f5",
+                border: "1px solid oklch(0.24 0.01 240)",
+              }}
+            >
+              <div className="space-y-3">
+                {[
+                  "Descarga RPCS3 desde https://rpcs3.net/ (versión para Windows, Linux o macOS)",
+                  "Extrae el archivo ZIP en una carpeta (ej: C:\\RPCS3 o ~/rpcs3)",
+                  "Ejecuta rpcs3.exe (Windows) o rpcs3 (Linux/macOS)",
+                  "En la primera ejecución, RPCS3 te pedirá que ubiques el firmware de PS3 (archivo .PUP)",
+                  "Descarga el firmware oficial desde Sony (búsqueda: 'PS3 firmware 4.91')",
+                  "Selecciona el archivo .PUP en RPCS3 y espera a que se instale (5-10 minutos)",
+                  "Una vez instalado, RPCS3 está listo para jugar",
+                ].map((step, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <span
+                      className="text-xs font-mono flex-shrink-0 mt-0.5"
+                      style={{ color: "#ff9800" }}
+                    >
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span
+                      className="text-sm"
+                      style={{
+                        fontFamily: "Verdana, Geneva, sans-serif",
+                        color: "#424242",
+                      }}
+                    >
+                      {step}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Configuration section */}
+            <h3
+              className="text-base font-bold mb-4"
+              style={{
+                fontFamily: "Verdana, Geneva, sans-serif",
+                color: "#212121",
+              }}
+            >
+              <span style={{ color: "#3f51b5" }}>#</span> Configuración inicial
+            </h3>
+            <div
+              className="space-y-4 mb-6"
+              style={{
+                fontFamily: "Verdana, Geneva, sans-serif",
+              }}
+            >
+              {[
+                { title: "Cargar juegos", desc: "Ve a File > Install Packages/Disc Game. Selecciona una ISO o carpeta de juego PS3. RPCS3 la añadirá a tu biblioteca." },
+                { title: "Configurar controles", desc: "Ve a Pad Settings. Mapea tu gamepad (PS4, Xbox, etc.) a los botones de PS3. RPCS3 soporta casi cualquier gamepad USB o inalámbrico." },
+                { title: "Ajustar gráficos", desc: "Ve a Settings > GPU. Ajusta resolución (1080p, 4K), antialiasing y shaders. Más calidad requiere CPU/GPU más potente." },
+                { title: "Habilitar aceleración", desc: "En Settings > GPU, activa 'Vulkan' (mejor rendimiento) o 'OpenGL'. Vulkan es más rápido en GPUs modernas." },
+              ].map((item, i) => (
+                <div key={i}>
+                  <h4
+                    className="text-sm font-bold mb-2"
+                    style={{
+                      color: "#212121",
+                    }}
+                  >
+                    {String(i + 1).padStart(2, "0")}. {item.title}
+                  </h4>
+                  <p
+                    className="text-sm ml-6"
+                    style={{
+                      color: "#424242",
+                      lineHeight: "1.6",
+                    }}
+                  >
+                    {item.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {/* Games section */}
+            <h3
+              className="text-base font-bold mb-4"
+              style={{
+                fontFamily: "Verdana, Geneva, sans-serif",
+                color: "#212121",
+              }}
+            >
+              <span style={{ color: "#3f51b5" }}>#</span> Juegos populares en RPCS3
+            </h3>
+            <div
+              className="p-5 rounded-lg mb-6"
+              style={{
+                background: "#f5f5f5",
+                border: "1px solid oklch(0.24 0.01 240)",
+              }}
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {[
+                  "The Last of Us (Cinemática perfecta, gameplay fluido)",
+                  "Metal Gear Solid 4 (Totalmente jugable, excelente rendimiento)",
+                  "Uncharted series (Juego fluido, gráficos mejorados)",
+                  "God of War III (Totalmente compatible, 60 FPS posible)",
+                  "Demon's Souls (Jugable con buen rendimiento)",
+                  "Gran Turismo 5 (Carreras fluidas, multijugador local)",
+                ].map((game, i) => (
+                  <div key={i} className="flex items-start gap-2">
+                    <span style={{ color: "#ff9800", marginTop: "2px" }}>▸</span>
+                    <span
+                      className="text-sm"
+                      style={{
+                        color: "#212121",
+                      }}
+                    >
+                      {game}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Requirements */}
+            <div
+              className="p-5 rounded-lg"
+              style={{
+                background: "oklch(0.68 0.15 240 / 0.08)",
+                border: "1px solid oklch(0.68 0.15 240 / 0.25)",
+              }}
+            >
+              <div className="flex items-start gap-3">
+                <span className="text-xl">⚙️</span>
+                <div>
+                  <h4
+                    className="text-sm font-bold mb-2"
+                    style={{
+                      fontFamily: "Verdana, Geneva, sans-serif",
+                      color: "#3f51b5",
+                    }}
+                  >
+                    Requisitos para RPCS3
+                  </h4>
+                  <p
+                    className="text-sm leading-relaxed"
+                    style={{
+                      fontFamily: "Verdana, Geneva, sans-serif",
+                      color: "#424242",
+                      lineHeight: "1.7",
+                    }}
+                  >
+                    RPCS3 requiere CPU potente (Ryzen 5 / i7 recomendado) y GPU moderna (RTX 2060 / RX 5700 XT mínimo). 8-16 GB RAM es ideal. Algunos juegos alcanzan 60 FPS en 1080p, otros necesitan ajustes gráficos. Consulta la base de datos de compatibilidad en https://rpcs3.net/compatibility para ver el rendimiento de juegos específicos.
                   </p>
                 </div>
               </div>
